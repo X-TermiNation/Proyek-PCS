@@ -80,7 +80,7 @@ namespace Proyek_PCS_toko
                 if (textcari.Text != "")
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK ,KATEGORI,STOK,HARGA FROM BARANG where "+key.ToUpper()+ " LIKE '%" + textcari.Text.ToUpper() + "%' ORDER BY ID ASC";
+                    cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK ,KATEGORI,STOK,HARGA FROM BARANG where "+key.ToUpper()+ " LIKE '%"+ textcari.Text +"%' ORDER BY ID ASC";
                     conn.Close();
                     conn.Open();
                     cmd.ExecuteReader();
