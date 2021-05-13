@@ -1,0 +1,31 @@
+﻿<Window x:Class="Proyek_PCS_toko.menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyek_PCS_toko"
+        mc:Ignorable="d"
+        Title="menu" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="LoginBackground.png"/>
+        </Grid.Background>
+        <Button x:Name="btnmasterbarang" Content="Master Barang" HorizontalAlignment="Left" Margin="321,124,0,0" VerticalAlignment="Top" Width="124" Height="46">
+            <Button.Background>
+                <ImageBrush ImageSource="HomepageMaster.jpg"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnmastertransaksi" Content="Master Transaksi" HorizontalAlignment="Left" Margin="321,200,0,0" VerticalAlignment="Top" Width="124" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="HomepageMaster.jpg"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnreport" Content="Report" HorizontalAlignment="Left" Margin="321,272,0,0" VerticalAlignment="Top" Width="124" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="HomepageMaster.jpg"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Admin" HorizontalAlignment="Left" Margin="342,35,0,0" VerticalAlignment="Top" Width="207" Height="53" FontSize="22" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
