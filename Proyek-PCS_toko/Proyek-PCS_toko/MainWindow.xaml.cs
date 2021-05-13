@@ -23,7 +23,7 @@ namespace Proyek_PCS_toko
     public partial class MainWindow : Window
     {
         public static OracleConnection conn;
-        String source, userId, pass;
+        public static String source, userId, pass;
         public MainWindow()
         {
             InitializeComponent();

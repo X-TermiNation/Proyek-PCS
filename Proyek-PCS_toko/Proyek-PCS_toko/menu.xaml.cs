@@ -30,5 +30,12 @@ namespace Proyek_PCS_toko
             this.Close();
             m.Show();
         }
+
+        private void btnreport_Click(object sender, RoutedEventArgs e)
+        {
+            reportAdmin r = new reportAdmin();
+            r.Show();
+            this.Close();
+        }
     }
 }

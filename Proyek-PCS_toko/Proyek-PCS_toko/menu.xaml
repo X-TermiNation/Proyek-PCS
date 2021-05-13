@@ -20,7 +20,7 @@
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnreport" Content="Report" HorizontalAlignment="Left" Margin="321,272,0,0" VerticalAlignment="Top" Width="124" Height="44">
+        <Button x:Name="btnreport" Content="Report" HorizontalAlignment="Left" Margin="321,272,0,0" VerticalAlignment="Top" Width="124" Height="44" Click="btnreport_Click">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
