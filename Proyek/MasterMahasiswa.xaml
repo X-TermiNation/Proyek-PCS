@@ -1,0 +1,46 @@
+﻿<Window x:Class="Proyek.MasterMahasiswa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyek"
+        mc:Ignorable="d"
+        Title="Master Siswa" Height="641" Width="1007" ResizeMode="NoResize">
+    <Grid Margin="0,0,-6,0" Width="1007">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="HomepageMaster.jpg"/>
+        </Grid.Background>
+        <DataGrid x:Name="dgSiswa" HorizontalAlignment="Left" Height="266" VerticalAlignment="Top" Width="999" ColumnWidth="195"/>
+        <Label Content="Nama " HorizontalAlignment="Left" Margin="36,303,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="NISN " HorizontalAlignment="Left" Margin="36,340,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="NIS " HorizontalAlignment="Left" Margin="36,377,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.443,1.588"/>
+        <Label Content="Jenis kelamin  " HorizontalAlignment="Left" Margin="36,414,0,0" VerticalAlignment="Top" FontSize="16" Width="132"/>
+        <Label Content="Nama Ortu/Wali " HorizontalAlignment="Left" Margin="407,302,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Alamat " HorizontalAlignment="Left" Margin="407,339,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="No telp " HorizontalAlignment="Left" Margin="407,376,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Email " HorizontalAlignment="Left" Margin="407,413,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Jurusan " HorizontalAlignment="Left" Margin="36,448,0,0" VerticalAlignment="Top" FontSize="16" Width="132"/>
+        <TextBox x:Name="namaTB" HorizontalAlignment="Left" Height="23" Margin="150,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="nisnTb" HorizontalAlignment="Left" Height="23" Margin="150,349,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="nisTb" HorizontalAlignment="Left" Height="23" Margin="150,385,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="waliTb" HorizontalAlignment="Left" Height="23" Margin="557,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="alamatTb" HorizontalAlignment="Left" Height="23" Margin="557,348,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="telpTb" HorizontalAlignment="Left" Height="23" Margin="557,386,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox x:Name="emailTb" HorizontalAlignment="Left" Height="23" Margin="557,422,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <RadioButton x:Name="priaRb" Content="Pria" HorizontalAlignment="Left" Margin="150,423,0,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.841,0.27" FontSize="16" GroupName="kelamin"/>
+        <RadioButton x:Name="wanitaRb" Content="Wanita" HorizontalAlignment="Left" Margin="223,423,0,0" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.841,0.27" FontSize="16" GroupName="kelamin"/>
+        <RadioButton x:Name="ipaRb" Content="IPA" HorizontalAlignment="Left" Margin="150,459,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="-0.752,0.351" GroupName="jurusan"/>
+        <RadioButton x:Name="ipsRb" Content="IPS" HorizontalAlignment="Left" Margin="223,459,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.454,1.75" FontSize="16" GroupName="jurusan"/>
+        <GroupBox Header="Biodata" Margin="10,271,189,80"/>
+        <Button x:Name="insBtn" Content="INSERT" HorizontalAlignment="Left" Margin="862,280,0,0" VerticalAlignment="Top" Width="108" Height="92" FontSize="20" Click="insBtn_Click"/>
+        <Button Content="UPDATE" HorizontalAlignment="Left" Margin="862,392,0,0" VerticalAlignment="Top" Width="108" Height="92" FontSize="20" IsEnabled="False"/>
+        <Button Content="DELETE" HorizontalAlignment="Left" Margin="862,504,0,0" VerticalAlignment="Top" Width="108" Height="92" FontSize="20" IsEnabled="False"/>
+        <Button Content="CLEAR" HorizontalAlignment="Left" Margin="375,537,0,0" VerticalAlignment="Top" Width="135" Height="51" RenderTransformOrigin="0.165,0.476" FontSize="20"/>
+        <DatePicker x:Name="ttlDp" HorizontalAlignment="Left" Margin="557,458,0,0" VerticalAlignment="Top" Width="191" Height="25"/>
+        <Label Content="Tanggal Lahir" HorizontalAlignment="Left" Margin="407,452,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+    </Grid>
+</Window>

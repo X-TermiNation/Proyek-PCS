@@ -1,0 +1,149 @@
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\Proyek.exe.config
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\Proyek.exe
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\Proyek.pdb
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\bin\Debug\stdole.dll
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.csprojAssemblyReference.cache
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\MainWindow.g.cs
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\App.g.cs
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.cache
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.lref
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\MainWindow.baml
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.g.resources
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.Properties.Resources.resources
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.GenerateResource.cache
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CoreCompileInputs.cache
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CopyComplete
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.exe
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Proyek.pdb
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Menu.g.cs
+C:\Users\Tan\Desktop\Semester 4\Proyek PCS\Proyek\Proyek-PCS\Proyek\obj\Debug\Menu.baml
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.csprojAssemblyReference.cache
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\MainWindow.g.cs
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.g.cs
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Menu.g.cs
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\App.g.cs
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.cache
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.lref
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.exe
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.pdb
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\Proyek.exe.config
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\Proyek.exe
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\Proyek.pdb
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\Oracle.DataAccess.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\Oracle.Database.Extensions.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\bin\Debug\stdole.dll
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\MainWindow.baml
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.baml
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Menu.baml
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.g.resources
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.Properties.Resources.resources
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.GenerateResource.cache
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CoreCompileInputs.cache
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CopyComplete
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\Proyek.exe.config
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\Proyek.exe
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\Proyek.pdb
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.Shared.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\stdole.dll
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.csprojAssemblyReference.cache
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\MainWindow.g.cs
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.g.cs
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Menu.g.cs
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\App.g.cs
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.cache
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.lref
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\MainWindow.baml
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.baml
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Menu.baml
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.g.resources
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.Properties.Resources.resources
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.GenerateResource.cache
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CoreCompileInputs.cache
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CopyComplete
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.exe
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\Proyek.pdb
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\LoginForm.g.cs
+E:\Github data\Proyek-PCS\Proyek\obj\Debug\LoginForm.baml
+E:\Github data\Proyek-PCS\Proyek\bin\Debug\Oracle.DataAccess.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\Proyek.exe.config
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\Proyek.exe
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\Proyek.pdb
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportSource.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.Shared.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\bin\Debug\stdole.dll
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.csprojAssemblyReference.cache
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\LoginForm.g.cs
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\MainWindow.g.cs
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.g.cs
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Menu.g.cs
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\App.g.cs
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.cache
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek_MarkupCompile.lref
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\LoginForm.baml
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\MainWindow.baml
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\MasterMahasiswa.baml
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Menu.baml
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.g.resources
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.Properties.Resources.resources
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.GenerateResource.cache
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CoreCompileInputs.cache
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.csproj.CopyComplete
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.exe
+E:\Kuliah\Proyek-PCS\Proyek-PCS\Proyek\obj\Debug\Proyek.pdb
