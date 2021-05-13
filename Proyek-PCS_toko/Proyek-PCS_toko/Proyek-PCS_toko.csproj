@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="masterbarang.xaml.cs">
+      <DependentUpon>masterbarang.xaml</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <Page Include="login.xaml">
       <SubType>Designer</SubType>
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="masterbarang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

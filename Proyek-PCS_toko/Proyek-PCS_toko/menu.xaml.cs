@@ -23,5 +23,12 @@ namespace Proyek_PCS_toko
         {
             InitializeComponent();
         }
+
+        private void btnmasterbarang_Click(object sender, RoutedEventArgs e)
+        {
+            masterbarang m = new masterbarang();
+            this.Close();
+            m.Show();
+        }
     }
 }

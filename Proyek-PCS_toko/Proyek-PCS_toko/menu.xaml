@@ -10,7 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="LoginBackground.png"/>
         </Grid.Background>
-        <Button x:Name="btnmasterbarang" Content="Master Barang" HorizontalAlignment="Left" Margin="321,124,0,0" VerticalAlignment="Top" Width="124" Height="46">
+        <Button x:Name="btnmasterbarang" Content="Master Barang" HorizontalAlignment="Left" Margin="321,124,0,0" VerticalAlignment="Top" Width="124" Height="46" Click="btnmasterbarang_Click">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>

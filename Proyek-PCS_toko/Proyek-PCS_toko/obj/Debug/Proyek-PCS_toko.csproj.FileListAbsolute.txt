@@ -19,3 +19,5 @@ D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.pdb
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\login.g.cs
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\login.baml
+D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.g.cs
+D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.baml
