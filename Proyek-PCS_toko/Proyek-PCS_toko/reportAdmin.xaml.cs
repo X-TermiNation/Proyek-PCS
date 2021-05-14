@@ -15,27 +15,22 @@ using System.Windows.Shapes;
 namespace Proyek_PCS_toko
 {
     /// <summary>
-    /// Interaction logic for menu.xaml
+    /// Interaction logic for reportAdmin.xaml
     /// </summary>
-    public partial class menu : Window
+    public partial class reportAdmin : Window
     {
-        public menu()
+        public reportAdmin()
         {
             InitializeComponent();
+
         }
 
-        private void btnmasterbarang_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            masterbarang m = new masterbarang();
-            this.Close();
-            m.Show();
-        }
-
-        private void btnreport_Click(object sender, RoutedEventArgs e)
-        {
-            reportAdmin r = new reportAdmin();
-            r.Show();
-            this.Close();
+            reportCRV.Owner = Window.GetWindow(this);
+            ReportView rpt = new ReportView();
+            rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
+            reportCRV.ViewerCore.ReportSource = rpt;
         }
     }
 }
