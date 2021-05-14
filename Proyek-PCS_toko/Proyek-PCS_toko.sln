@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyek-PCS_toko", "Proyek-PCS_toko\Proyek-PCS_toko.csproj", "{06377A85-A85B-4BA1-B190-45ABB21CA51F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGSW6", "..\..\..\Kuliah\Semester 4\Pemrograman client server\Pratikum\Tugas\Week 6\TGSW6\TGSW6.csproj", "{78E8ACE9-757A-4C9E-B68C-72D8437AB07B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGSW5", "..\..\..\Kuliah\Semester 4\Pemrograman client server\Pratikum\Tugas\Week 5\TGSW5\TGSW5.csproj", "{44D59153-E593-4D10-8DC8-077F1666A716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{06377A85-A85B-4BA1-B190-45ABB21CA51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06377A85-A85B-4BA1-B190-45ABB21CA51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06377A85-A85B-4BA1-B190-45ABB21CA51F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78E8ACE9-757A-4C9E-B68C-72D8437AB07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78E8ACE9-757A-4C9E-B68C-72D8437AB07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78E8ACE9-757A-4C9E-B68C-72D8437AB07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78E8ACE9-757A-4C9E-B68C-72D8437AB07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D59153-E593-4D10-8DC8-077F1666A716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D59153-E593-4D10-8DC8-077F1666A716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D59153-E593-4D10-8DC8-077F1666A716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D59153-E593-4D10-8DC8-077F1666A716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

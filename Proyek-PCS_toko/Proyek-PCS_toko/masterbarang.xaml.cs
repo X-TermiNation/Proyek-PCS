@@ -46,6 +46,12 @@ namespace Proyek_PCS_toko
 
         private void normalmode()
         {
+            tbid.Text = "";
+            tbnama_barang.Text = "";
+            tbstok.Text = "";
+            tbharga.Text = "";
+            cbkat.SelectedIndex = -1;
+            cbmerk.SelectedIndex = -1;
             btninsert.IsEnabled = true;
             btnupdate.IsEnabled = false;
             btndelete.IsEnabled = false;
@@ -177,28 +183,8 @@ namespace Proyek_PCS_toko
             conn.Close();
         }
 
-        private void dg_barang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (dg_barang.SelectedIndex != -1)
-            {
-                tbid.Text = ds.Rows[dg_barang.SelectedIndex][0].ToString();
-                tbnama_barang.Text = ds.Rows[dg_barang.SelectedIndex][1].ToString();
-                tbstok.Text = ds.Rows[dg_barang.SelectedIndex][4].ToString();
-                tbharga.Text = ds.Rows[dg_barang.SelectedIndex][5].ToString();
-                cbkat.SelectedIndex = cbkat.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][3]);
-                cbmerk.SelectedIndex = cbmerk.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][2]);
-                editmode();
-            }
-        }
-
         private void btnclear_Click(object sender, RoutedEventArgs e)
         {
-            tbid.Text = "";
-            tbnama_barang.Text = "";
-            tbstok.Text = "";
-            tbharga.Text = "";
-            cbkat.SelectedIndex = -1;
-            cbmerk.SelectedIndex = -1;
             normalmode();
         }
 
@@ -216,23 +202,22 @@ namespace Proyek_PCS_toko
                     {
                         try
                         {
-                            
                             OracleCommand cmd = new OracleCommand($"insert into BARANG values({Convert.ToInt32(tbid.Text.ToString())},'{tbnama_barang.Text}','{kodemerk}','{kodekat}',{Convert.ToInt32(tbstok.Text)},{Convert.ToInt32(tbharga.Text)})", conn);
                             cmd.ExecuteNonQuery();
                             trans.Commit();
                             conn.Close();
                             MessageBox.Show("Insert berhasil");
-                            loadData();
                         }
                         catch (Exception ex)
                         {
                             trans.Rollback();
                             conn.Close();
                             MessageBox.Show(ex.Message);
-                            MessageBox.Show("Gagal insert , soal belum terjawab semua");
                         }
                     }
                     conn.Close();
+                    loadData();
+                    normalmode();
                 }
                 else
                 {
@@ -243,21 +228,22 @@ namespace Proyek_PCS_toko
             {
                 MessageBox.Show("isi textbox terlebih dahulu");
             }
-
         }
 
         private void tbnama_barang_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(tbnama_barang.Text.Length != 0)
+            if(btninsert.IsEnabled==true)
             {
-                getid();
-                tbid.Text = idbarang.ToString();
+                if (tbnama_barang.Text.Length != 0)
+                {
+                    getid();
+                    tbid.Text = idbarang.ToString();
+                }
+                else
+                {
+                    tbid.Text = "";
+                }
             }
-            else
-            {
-                tbid.Text = "";
-            }
-
         }
 
         private void tbstok_TextChanged(object sender, TextChangedEventArgs e)
@@ -273,6 +259,86 @@ namespace Proyek_PCS_toko
                     return;
                 }
 
+            }
+        }
+
+        private void btnupdate_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbnama_barang.Text.Length != 0 || tbharga.Text.Length != 0 || tbstok.Text.Length != 0)
+            {
+                if (cbkat.SelectedIndex != -1 || cbmerk.SelectedIndex != -1)
+                {
+                    getkodekat();
+                    getkodemerk();
+                    conn.Open();
+                    using (OracleTransaction trans = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            OracleCommand cmd = new OracleCommand($"update BARANG set NAMA_BARANG = '{tbnama_barang.Text}',MERK = '{kodemerk}',KATEGORI = '{kodekat}',STOK = {Convert.ToInt32(tbstok.Text)},HARGA = {Convert.ToInt32(tbharga.Text)} where ID = {Convert.ToInt32(tbid.Text)}", conn);
+                            cmd.ExecuteNonQuery();
+                            trans.Commit();
+                            conn.Close();
+                            MessageBox.Show("Update berhasil");
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            conn.Close();
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    conn.Close();
+                    loadData();
+                    normalmode();
+                }
+                else
+                {
+                    MessageBox.Show("Pilih combobox terlebih dahulu");
+                }
+            }
+            else
+            {
+                MessageBox.Show("isi textbox terlebih dahulu");
+            }
+        }
+
+        private void btndelete_Click(object sender, RoutedEventArgs e)
+        {
+            conn.Open();
+            using (OracleTransaction trans = conn.BeginTransaction())
+            {
+                try
+                {
+                    OracleCommand cmd = new OracleCommand($"delete from barang where ID = {Convert.ToInt32(tbid.Text)}", conn);
+                    cmd.ExecuteNonQuery();
+                    trans.Commit();
+                    conn.Close();
+                    MessageBox.Show("delete berhasil");
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    conn.Close();
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            conn.Close();
+            loadData();
+            normalmode();
+        }
+
+        private void dg_barang_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dg_barang.SelectedIndex != -1)
+            {
+                editmode();
+                tbid.Text = ds.Rows[dg_barang.SelectedIndex][0].ToString();
+                tbnama_barang.Text = ds.Rows[dg_barang.SelectedIndex][1].ToString();
+                tbstok.Text = ds.Rows[dg_barang.SelectedIndex][4].ToString();
+                tbharga.Text = ds.Rows[dg_barang.SelectedIndex][5].ToString();
+                cbkat.SelectedIndex = cbkat.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][3]);
+                cbmerk.SelectedIndex = cbmerk.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][2]);
             }
         }
 

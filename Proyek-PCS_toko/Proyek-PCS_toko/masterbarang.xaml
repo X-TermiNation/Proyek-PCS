@@ -12,7 +12,7 @@
         </Grid.Background>
         <Button x:Name="btncari" Content="Cari" HorizontalAlignment="Left" Margin="412,23,0,0" VerticalAlignment="Top" Width="75" Height="80" Click="btncari_Click"/>
         <TextBox x:Name="textcari" HorizontalAlignment="Left" Height="23" Margin="115,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="255"/>
-        <DataGrid x:Name="dg_barang" HorizontalAlignment="Left" Height="273" Margin="57,121,0,0" VerticalAlignment="Top" Width="963" PreviewMouseLeftButtonDown="dg_barang_PreviewMouseLeftButtonDown"/>
+        <DataGrid x:Name="dg_barang" HorizontalAlignment="Left" Height="273" Margin="57,121,0,0" VerticalAlignment="Top" Width="963" MouseDoubleClick="dg_barang_MouseDoubleClick"/>
         <RadioButton x:Name="radionama" Content="Nama" HorizontalAlignment="Left" Margin="57,88,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radiomerk" Content="Merk" HorizontalAlignment="Left" Margin="145,88,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radiokategori" Content="Kategori" HorizontalAlignment="Left" Margin="227,88,0,0" VerticalAlignment="Top"/>
@@ -32,8 +32,8 @@
         <Label Content="Harga :" HorizontalAlignment="Left" Margin="660,509,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbharga" HorizontalAlignment="Left" Height="23" Margin="726,512,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" TextChanged="tbharga_TextChanged"/>
         <Button x:Name="btninsert" Content="Insert" HorizontalAlignment="Left" Margin="286,590,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="btninsert_Click"/>
-        <Button x:Name="btnupdate" Content="Update" HorizontalAlignment="Left" Margin="432,590,0,0" VerticalAlignment="Top" Width="84" Height="34"/>
-        <Button x:Name="btndelete" Content="Delete" HorizontalAlignment="Left" Margin="566,590,0,0" VerticalAlignment="Top" Width="84" Height="34"/>
+        <Button x:Name="btnupdate" Content="Update" HorizontalAlignment="Left" Margin="432,590,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="btnupdate_Click"/>
+        <Button x:Name="btndelete" Content="Delete" HorizontalAlignment="Left" Margin="566,590,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="btndelete_Click"/>
         <Button x:Name="btnclear" Content="Clear" HorizontalAlignment="Left" Margin="705,590,0,0" VerticalAlignment="Top" Width="84" Height="34" Click="btnclear_Click"/>
 
     </Grid>
