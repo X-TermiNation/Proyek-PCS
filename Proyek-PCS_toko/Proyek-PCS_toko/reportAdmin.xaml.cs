@@ -130,7 +130,7 @@ namespace Proyek_PCS_toko
             }
             else if (pemasukanReportRB.IsChecked == true)
             {
-
+                pemasukanReport rpt = new pemasukanReport();
             }
         }
 

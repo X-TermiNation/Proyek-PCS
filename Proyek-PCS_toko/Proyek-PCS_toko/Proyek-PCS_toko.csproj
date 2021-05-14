@@ -75,6 +75,12 @@
     <Compile Include="masterbarang.xaml.cs">
       <DependentUpon>masterbarang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pemasukanReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pemasukanReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="reportAdmin.xaml.cs">
       <DependentUpon>reportAdmin.xaml</DependentUpon>
     </Compile>
@@ -144,6 +150,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="pemasukanReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pemasukanReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
