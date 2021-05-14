@@ -21,3 +21,24 @@ D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\login.baml
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.g.cs
 D:\semester 4\pemprograman client server\PROYEK\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\bin\Debug\Proyek-PCS_toko.exe.config
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\bin\Debug\Proyek-PCS_toko.exe
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\bin\Debug\Proyek-PCS_toko.pdb
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.csprojAssemblyReference.cache
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\login.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\MainWindow.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\menu.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\App.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko_MarkupCompile.cache
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko_MarkupCompile.lref
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\login.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\MainWindow.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\masterbarang.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\menu.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.g.resources
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek_PCS_toko.Properties.Resources.resources
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.csproj.GenerateResource.cache
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.csproj.CoreCompileInputs.cache
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.exe
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.pdb

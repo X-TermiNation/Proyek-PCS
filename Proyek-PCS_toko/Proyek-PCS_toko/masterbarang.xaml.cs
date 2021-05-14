@@ -24,21 +24,42 @@ namespace Proyek_PCS_toko
         OracleConnection conn;
         DataTable ds;
         OracleDataAdapter da;
+        int idbarang;
+        string kodekat, kodemerk;
         public masterbarang()
         {
             InitializeComponent();
             conn = MainWindow.conn;
             loadData();
+            isimerk();
+            isikategori();
+            normalmode();
         }
+
+        private void editmode()
+        {
+            btninsert.IsEnabled = false;
+            btnupdate.IsEnabled = true;
+            btndelete.IsEnabled = true;
+            btnclear.IsEnabled = true;
+        }
+
+        private void normalmode()
+        {
+            btninsert.IsEnabled = true;
+            btnupdate.IsEnabled = false;
+            btndelete.IsEnabled = false;
+            btnclear.IsEnabled = false;
+        }
+
         private void loadData()
         {
-
             ds = new DataTable();
             OracleCommand cmd = new OracleCommand();
             da = new OracleDataAdapter();
 
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK ,KATEGORI,STOK,HARGA FROM BARANG ORDER BY id ASC";
+            cmd.CommandText = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT ORDER BY id ASC";
 
             conn.Close();
             conn.Open();
@@ -46,6 +67,36 @@ namespace Proyek_PCS_toko
             da.SelectCommand = cmd;
             da.Fill(ds);
             dg_barang.ItemsSource = ds.DefaultView;
+            conn.Close();
+
+        }
+
+        private void isikategori()
+        {
+            cbkat.Items.Clear();
+            OracleCommand cmd = new OracleCommand($"select * from KATEGORI ORDER BY KODE_KAT", conn);
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                cbkat.Items.Add(reader.GetString(1));
+            }
+            cbkat.SelectedIndex = -1;
+            conn.Close();
+        }
+
+        private void isimerk()
+        {
+            cbmerk.Items.Clear();
+            OracleCommand cmd = new OracleCommand($"select * from MERK", conn);
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                cbmerk.Items.Add(reader.GetString(1));
+            }
+            cbmerk.SelectedValuePath = "Name";
+            cbmerk.SelectedIndex = -1;
             conn.Close();
         }
 
@@ -80,7 +131,7 @@ namespace Proyek_PCS_toko
                 if (textcari.Text != "")
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK ,KATEGORI,STOK,HARGA FROM BARANG where "+key.ToUpper()+ " LIKE '%" + textcari.Text.ToUpper() + "%' ORDER BY ID ASC";
+                    cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK,KATEGORI,STOK,HARGA FROM BARANG where "+key.ToUpper()+ " LIKE '%" + textcari.Text.ToUpper() + "%' ORDER BY ID ASC";
                     conn.Close();
                     conn.Open();
                     cmd.ExecuteReader();
@@ -94,6 +145,151 @@ namespace Proyek_PCS_toko
                     MessageBox.Show("keyword tidak boleh kosong");
                 }
             }  
+        }
+
+        private void getid()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.CommandText = $"select MAX(ID)+1 from BARANG";
+            idbarang = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+        }
+
+        private void getkodekat()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.CommandText = $"select KODE_KAT from KATEGORI where NAMA_KAT = '{cbkat.SelectedItem}'";
+            kodekat = cmd.ExecuteScalar().ToString();
+            conn.Close();
+        }
+
+        private void getkodemerk()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.CommandText = $"select KODE_MERK from MERK where NAMA_MERK = '{cbmerk.SelectedItem}'";
+            kodemerk = cmd.ExecuteScalar().ToString();
+            conn.Close();
+        }
+
+        private void dg_barang_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (dg_barang.SelectedIndex != -1)
+            {
+                tbid.Text = ds.Rows[dg_barang.SelectedIndex][0].ToString();
+                tbnama_barang.Text = ds.Rows[dg_barang.SelectedIndex][1].ToString();
+                tbstok.Text = ds.Rows[dg_barang.SelectedIndex][4].ToString();
+                tbharga.Text = ds.Rows[dg_barang.SelectedIndex][5].ToString();
+                cbkat.SelectedIndex = cbkat.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][3]);
+                cbmerk.SelectedIndex = cbmerk.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][2]);
+                editmode();
+            }
+        }
+
+        private void btnclear_Click(object sender, RoutedEventArgs e)
+        {
+            tbid.Text = "";
+            tbnama_barang.Text = "";
+            tbstok.Text = "";
+            tbharga.Text = "";
+            cbkat.SelectedIndex = -1;
+            cbmerk.SelectedIndex = -1;
+            normalmode();
+        }
+
+
+        private void btninsert_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbnama_barang.Text.Length != 0 || tbharga.Text.Length != 0 || tbstok.Text.Length !=0)
+            {
+                if(cbkat.SelectedIndex != -1 || cbmerk.SelectedIndex != -1)
+                {
+                    getkodekat();
+                    getkodemerk();
+                    conn.Open();
+                    using (OracleTransaction trans = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            
+                            OracleCommand cmd = new OracleCommand($"insert into BARANG values({Convert.ToInt32(tbid.Text.ToString())},'{tbnama_barang.Text}','{kodemerk}','{kodekat}',{Convert.ToInt32(tbstok.Text)},{Convert.ToInt32(tbharga.Text)})", conn);
+                            cmd.ExecuteNonQuery();
+                            trans.Commit();
+                            conn.Close();
+                            MessageBox.Show("Insert berhasil");
+                            loadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            conn.Close();
+                            MessageBox.Show(ex.Message);
+                            MessageBox.Show("Gagal insert , soal belum terjawab semua");
+                        }
+                    }
+                    conn.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Pilih combobox terlebih dahulu");
+                }
+            }
+            else
+            {
+                MessageBox.Show("isi textbox terlebih dahulu");
+            }
+
+        }
+
+        private void tbnama_barang_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(tbnama_barang.Text.Length != 0)
+            {
+                getid();
+                tbid.Text = idbarang.ToString();
+            }
+            else
+            {
+                tbid.Text = "";
+            }
+
+        }
+
+        private void tbstok_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string tString = tbstok.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    tbstok.Text = "";
+                    return;
+                }
+
+            }
+        }
+
+        private void tbharga_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string tString = tbharga.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    tbharga.Text = "";
+                    return;
+                }
+
+            }
         }
     }
 }
