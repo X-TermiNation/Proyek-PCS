@@ -78,10 +78,16 @@
     <Compile Include="reportAdmin.xaml.cs">
       <DependentUpon>reportAdmin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReportView.cs">
+    <Compile Include="ReportStock.cs">
+      <DependentUpon>ReportStock.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportHarga.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReportView.rpt</DependentUpon>
+      <DependentUpon>ReportHarga.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="user.cs" />
@@ -142,9 +148,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportView.rpt">
+    <EmbeddedResource Include="ReportStock.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReportView.cs</LastGenOutput>
+      <LastGenOutput>ReportStock.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportHarga.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportHarga.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,14 +16,14 @@ namespace Proyek_PCS_toko {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportView : ReportClass {
+    public class ReportHarga : ReportClass {
         
-        public ReportView() {
+        public ReportHarga() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportView.rpt";
+                return "ReportHarga.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Proyek_PCS_toko {
         
         public override string FullResourceName {
             get {
-                return "Proyek_PCS_toko.ReportView.rpt";
+                return "Proyek_PCS_toko.ReportHarga.rpt";
             }
             set {
                 // Do nothing
@@ -119,12 +119,28 @@ namespace Proyek_PCS_toko {
                 return this.ReportDefinition.Sections[8];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_katParam {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_merkParam {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportView : Component, ICachedReport {
+    public class CachedReportHarga : Component, ICachedReport {
         
-        public CachedReportView() {
+        public CachedReportHarga() {
         }
         
         [Browsable(false)]
@@ -161,7 +177,7 @@ namespace Proyek_PCS_toko {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportView rpt = new ReportView();
+            ReportHarga rpt = new ReportHarga();
             rpt.Site = this.Site;
             return rpt;
         }

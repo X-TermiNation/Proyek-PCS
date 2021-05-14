@@ -9,7 +9,21 @@
         Title="reportAdmin" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
 
-        <Viewer:CrystalReportsViewer x:Name="reportCRV" Margin="10,90,-0.4,0"/>
+        <Viewer:CrystalReportsViewer x:Name="reportCRV" Margin="0,210,-0.4,0"/>
+        <DatePicker x:Name="pertamaDATE" HorizontalAlignment="Left" Margin="266,32,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Label Content="Ke" HorizontalAlignment="Left" Margin="381,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dari Tanggal" HorizontalAlignment="Left" Margin="188,32,0,0" VerticalAlignment="Top"/>
+        <Label Content="Kategori" HorizontalAlignment="Left" Margin="188,73,0,0" VerticalAlignment="Top"/>
+        <Label Content="Merk" HorizontalAlignment="Left" Margin="188,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.745,2.148"/>
+        <DatePicker x:Name="duaDATE" HorizontalAlignment="Left" Margin="422,33,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <GroupBox Header="Search Engine" HorizontalAlignment="Left" Height="147" Margin="160,8,-0.4,0" VerticalAlignment="Top" Width="634"/>
+        <GroupBox Header="Option" HorizontalAlignment="Left" Height="145" Margin="124,10,0,0" VerticalAlignment="Top" Width="21"/>
+        <Button x:Name="submitBTN" Content="Submit" HorizontalAlignment="Left" Margin="253,171,0,0" VerticalAlignment="Top" Width="271" Click="submitBTN_Click"/>
+        <ComboBox x:Name="katCB" HorizontalAlignment="Left" Margin="266,73,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <ComboBox x:Name="merkCB" HorizontalAlignment="Left" Margin="266,113,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <RadioButton x:Name="hargaReportRB" Content="Lihat Harga" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Checked="hargaReportRB_Checked"/>
+        <RadioButton x:Name="stockReportRB" Content="Lihat Stock" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Checked="stockReportRB_Checked"/>
+        <RadioButton x:Name="pemasukanReportRB" Content="Lihat Pemasukan" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Checked="pemasukanReportRB_Checked"/>
 
     </Grid>
 </Window>
