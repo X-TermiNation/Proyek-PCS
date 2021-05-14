@@ -73,9 +73,88 @@ namespace Proyek_PCS_toko
             }
         }
 
+        private void dgvMerk_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dgvMerk.SelectedIndex != -1)
+            {
+                dgvKat.SelectedIndex = -1;
+                kodemerkTb.Text = dataMerk.Rows[dgvMerk.SelectedIndex][0].ToString();
+                namamerkTb.Text = dataMerk.Rows[dgvMerk.SelectedIndex][1].ToString();
+                insmBtn.IsEnabled = false;
+                updmBtn.IsEnabled = true;
+                delmBtn.IsEnabled = true;
+            }
+        }
+
         private void inskBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        bool katReq = false;
+        private void namakatTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (dgvKat.SelectedIndex < 0)
+            {
+                if (namakatTb.Text.Length >= 3)
+                {
+                    OracleCommand cmd = new OracleCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = $"SELECT AUTOGENKODEKAT('{namakatTb.Text.Substring(0, 3).ToUpper()}') FROM DUAL";
+                    conn.Close();
+                    conn.Open();
+                    kodekatTb.Text = cmd.ExecuteScalar().ToString();
+                    conn.Close();
+                    katReq = true;
+                }
+                else
+                {
+                    kodekatTb.Text = "";
+                    katReq = false;
+                }
+            }
+        }
+
+        private void clrkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            kodekatTb.Text = "";
+            namakatTb.Text = "";
+            dgvKat.SelectedIndex = -1;
+            inskBtn.IsEnabled = true;
+            updkBtn.IsEnabled = false;
+            delkBtn.IsEnabled = false;
+        }
+
+        private void clrmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            kodemerkTb.Text = "";
+            namamerkTb.Text = "";
+            dgvMerk.SelectedIndex = -1;
+            insmBtn.IsEnabled = true;
+            updmBtn.IsEnabled = false;
+            delmBtn.IsEnabled = false;
+        }
+        bool merkReq = false;
+        private void namamerkTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (dgvMerk.SelectedIndex < 0)
+            {
+                if (namamerkTb.Text.Length >= 3)
+                {
+                    OracleCommand cmd = new OracleCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = $"SELECT AUTOGENKODEMERK('{namamerkTb.Text.Substring(0, 3).ToUpper()}') FROM DUAL";
+                    conn.Close();
+                    conn.Open();
+                    kodemerkTb.Text = cmd.ExecuteScalar().ToString();
+                    conn.Close();
+                    merkReq = true;
+                }
+                else
+                {
+                    kodemerkTb.Text = "";
+                    merkReq = false;
+                }
+            }
         }
     }
 }

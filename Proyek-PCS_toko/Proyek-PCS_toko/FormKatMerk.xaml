@@ -11,15 +11,15 @@
             <ImageBrush ImageSource="HomepageMaster.jpg"/>
         </Grid.Background>
         <GroupBox Header="Kategori" HorizontalAlignment="Left" Height="354" Margin="10,0,0,0" VerticalAlignment="Top" Width="377">
-            <Button x:Name="clrkBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="140,278,0,0"/>
+            <Button x:Name="clrkBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="140,278,0,0" Click="clrkBtn_Click"/>
         </GroupBox>
         <DataGrid x:Name="dgvKat" HorizontalAlignment="Left" Height="175" Margin="21,24,0,0" VerticalAlignment="Top" Width="354" ColumnWidth="164.5" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True" MouseDoubleClick="dgvKat_MouseDoubleClick"/>
         <GroupBox Header="Merk" HorizontalAlignment="Left" Height="354" Margin="398,0,0,0" VerticalAlignment="Top" Width="376"/>
-        <DataGrid x:Name="dgvMerk" HorizontalAlignment="Left" Height="175" Margin="408,24,0,0" VerticalAlignment="Top" Width="354" ColumnWidth="164.5" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False"/>
+        <DataGrid x:Name="dgvMerk" HorizontalAlignment="Left" Height="175" Margin="408,24,0,0" VerticalAlignment="Top" Width="354" ColumnWidth="164.5" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" MouseDoubleClick="dgvMerk_MouseDoubleClick"/>
         <Label Content="Kode Kategori  " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,204,0,0"/>
         <Label Content="Nama Kategori " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,230,0,0"/>
         <TextBox x:Name="kodekatTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="115,208,0,0" IsReadOnly="True"/>
-        <TextBox x:Name="namakatTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="115,234,0,0" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="namakatTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="115,234,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="namakatTb_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,8 +34,8 @@
         <Button x:Name="delkBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="237,270,0,0" IsEnabled="False"/>
         <Label Content="Kode Merk     " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414,205,0,0"/>
         <Label Content="Nama Merk   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414,231,0,0"/>
-        <TextBox x:Name="kodekatTb_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,208,0,0" IsReadOnly="True"/>
-        <TextBox x:Name="namakatTb_Copy" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,234,0,0" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="kodemerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,208,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="namamerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,234,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="namamerkTb_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -48,7 +48,7 @@
         <Button x:Name="insmBtn" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="466,270,0,0"/>
         <Button x:Name="updmBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,270,0,0" IsEnabled="False"/>
         <Button x:Name="delmBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="628,270,0,0" IsEnabled="False"/>
-        <Button x:Name="clrmBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,295,0,0"/>
+        <Button x:Name="clrmBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,295,0,0" Click="clrmBtn_Click"/>
 
     </Grid>
 </Window>
