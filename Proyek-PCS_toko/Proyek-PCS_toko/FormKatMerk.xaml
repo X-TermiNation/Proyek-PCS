@@ -45,7 +45,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="insmBtn" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="466,270,0,0"/>
+        <Button x:Name="insmBtn" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="466,270,0,0" Click="insmBtn_Click"/>
         <Button x:Name="updmBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,270,0,0" IsEnabled="False"/>
         <Button x:Name="delmBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="628,270,0,0" IsEnabled="False"/>
         <Button x:Name="clrmBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,295,0,0" Click="clrmBtn_Click"/>

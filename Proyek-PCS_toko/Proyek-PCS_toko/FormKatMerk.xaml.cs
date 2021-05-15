@@ -88,7 +88,27 @@ namespace Proyek_PCS_toko
 
         private void inskBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (katReq)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO KATEGORI VALUES(:KODEKAT, :NAMAKAT)", conn);
+                cmd.Parameters.Add(":KODEKAT", kodekatTb.Text);
+                cmd.Parameters.Add(":NAMAKAT", namakatTb.Text);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadData();
+                kodekatTb.Text = "";
+                namakatTb.Text = "";
+                dgvKat.SelectedIndex = -1;
+                inskBtn.IsEnabled = true;
+                updkBtn.IsEnabled = false;
+                delkBtn.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Nama kategori tidak memenuhi syarat");
+            }
         }
         bool katReq = false;
         private void namakatTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -154,6 +174,31 @@ namespace Proyek_PCS_toko
                     kodemerkTb.Text = "";
                     merkReq = false;
                 }
+            }
+        }
+
+        private void insmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (merkReq)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO MERK VALUES(:KODEMERK, :NAMAMERK)", conn);
+                cmd.Parameters.Add(":KODEMERK", kodemerkTb.Text);
+                cmd.Parameters.Add(":NAMAMERK", namamerkTb.Text);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadData();
+                kodemerkTb.Text = "";
+                namamerkTb.Text = "";
+                dgvMerk.SelectedIndex = -1;
+                insmBtn.IsEnabled = true;
+                updmBtn.IsEnabled = false;
+                delmBtn.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Nama merk tidak memenuhi syarat");
             }
         }
     }
