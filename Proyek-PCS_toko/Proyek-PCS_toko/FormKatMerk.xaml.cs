@@ -201,5 +201,54 @@ namespace Proyek_PCS_toko
                 MessageBox.Show("Nama merk tidak memenuhi syarat");
             }
         }
+
+        private void delkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("DELETE FROM KATEGORI WHERE KODE_KAT=:KODEKAT", conn);
+                cmd.Parameters.Add(":KODEKAT", dataKat.Rows[dgvKat.SelectedIndex][0].ToString());
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadData();
+                kodekatTb.Text = "";
+                namakatTb.Text = "";
+                dgvKat.SelectedIndex = -1;
+                inskBtn.IsEnabled = true;
+                updkBtn.IsEnabled = false;
+                delkBtn.IsEnabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Kategori sudah terisi di barang lain");
+            }
+            
+        }
+
+        private void delmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand("DELETE FROM MERK WHERE KODE_MERK=:KODEMERK", conn);
+                cmd.Parameters.Add(":KODEMERK", dataMerk.Rows[dgvMerk.SelectedIndex][0].ToString());
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                loadData();
+                kodemerkTb.Text = "";
+                namamerkTb.Text = "";
+                dgvMerk.SelectedIndex = -1;
+                insmBtn.IsEnabled = true;
+                updmBtn.IsEnabled = false;
+                delmBtn.IsEnabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Merk sudah terisi di barang lain");
+            }
+        }
     }
 }
