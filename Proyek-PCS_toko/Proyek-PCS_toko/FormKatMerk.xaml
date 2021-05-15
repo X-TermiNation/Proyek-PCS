@@ -49,6 +49,7 @@
         <Button x:Name="updmBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,270,0,0" IsEnabled="False"/>
         <Button x:Name="delmBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="628,270,0,0" IsEnabled="False" Click="delmBtn_Click"/>
         <Button x:Name="clrmBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,295,0,0" Click="clrmBtn_Click"/>
+        <Button x:Name="btnkembali" Content="Back" HorizontalAlignment="Left" Margin="341,368,0,0" VerticalAlignment="Top" Width="104" Height="36" Click="btnkembali_Click"/>
 
     </Grid>
 </Window>

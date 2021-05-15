@@ -38,11 +38,5 @@ namespace Proyek_PCS_toko
             this.Close();
         }
 
-        private void formkat_Click(object sender, RoutedEventArgs e)
-        {
-            FormKatMerk fkm = new FormKatMerk();
-            this.Close();
-            fkm.Show();
-        }
     }
 }

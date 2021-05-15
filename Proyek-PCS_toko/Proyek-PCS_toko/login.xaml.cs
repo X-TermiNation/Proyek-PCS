@@ -46,7 +46,7 @@ namespace Proyek_PCS_toko
         }
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {
-            if (tbusername.Text.ToUpper() == "ADMIN" && tbpassword.Text.ToUpper() == "ADMIN")
+            if (tbusername.Text.ToUpper() == "ADMIN" && tbpassword.Password.ToUpper() == "ADMIN")
             {
                 MessageBox.Show("Berhasil login admin");
                 menu m = new menu();
@@ -59,7 +59,7 @@ namespace Proyek_PCS_toko
                 {
                     if (tbusername.Text.ToUpper() == us[i].Username.ToUpper())
                     {
-                        if (tbpassword.Text.ToUpper() == us[i].Password.ToUpper())
+                        if (tbpassword.Password.ToUpper() == us[i].Password.ToUpper())
                             log = true;
                         else
                             MessageBox.Show("password salah");
@@ -75,6 +75,13 @@ namespace Proyek_PCS_toko
                     MessageBox.Show("Username tidak ada / Username salah");
                 }
             }
+        }
+
+        private void btnregister_Click(object sender, RoutedEventArgs e)
+        {
+            register rg = new register();
+            this.Close();
+            rg.ShowDialog();
         }
     }
 }

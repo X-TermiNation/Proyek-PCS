@@ -157,3 +157,7 @@ C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek
 C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.csproj.CopyComplete
 C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.exe
 C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\Proyek-PCS_toko.pdb
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormKatMerk.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormKatMerk.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml

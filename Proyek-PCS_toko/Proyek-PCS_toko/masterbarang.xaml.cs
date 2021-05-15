@@ -74,7 +74,6 @@ namespace Proyek_PCS_toko
             da.Fill(ds);
             dg_barang.ItemsSource = ds.DefaultView;
             conn.Close();
-
         }
 
         private void isikategori()
@@ -340,6 +339,20 @@ namespace Proyek_PCS_toko
                 cbkat.SelectedIndex = cbkat.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][3]);
                 cbmerk.SelectedIndex = cbmerk.Items.IndexOf(ds.Rows[dg_barang.SelectedIndex][2]);
             }
+        }
+
+        private void btnmerk_category_Click(object sender, RoutedEventArgs e)
+        {
+            FormKatMerk fkm = new FormKatMerk();
+            this.Close();
+            fkm.Show();
+        }
+
+        private void btnback_Click(object sender, RoutedEventArgs e)
+        {
+            menu mn = new menu();
+            this.Close();
+            mn.ShowDialog();
         }
 
         private void tbharga_TextChanged(object sender, TextChangedEventArgs e)

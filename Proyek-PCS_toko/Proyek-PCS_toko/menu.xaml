@@ -10,27 +10,22 @@
         <Grid.Background>
             <ImageBrush ImageSource="LoginBackground.png"/>
         </Grid.Background>
-        <Button x:Name="btnmasterbarang" Content="Master Barang" HorizontalAlignment="Left" Margin="321,124,0,0" VerticalAlignment="Top" Width="124" Height="46" Click="btnmasterbarang_Click">
+        <Button x:Name="btnmasterbarang" Content="Master Barang" HorizontalAlignment="Left" Margin="321,134,0,0" VerticalAlignment="Top" Width="124" Height="46" Click="btnmasterbarang_Click">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnmastertransaksi" Content="Master Transaksi" HorizontalAlignment="Left" Margin="321,175,0,0" VerticalAlignment="Top" Width="124" Height="44">
+        <Button x:Name="btnmastertransaksi" Content="Master Transaksi" HorizontalAlignment="Left" Margin="321,199,0,0" VerticalAlignment="Top" Width="124" Height="44">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnreport" Content="Report" HorizontalAlignment="Left" Margin="321,273,0,0" VerticalAlignment="Top" Width="124" Height="44" Click="btnreport_Click">
+        <Button x:Name="btnreport" Content="Report" HorizontalAlignment="Left" Margin="321,264,0,0" VerticalAlignment="Top" Width="124" Height="44" Click="btnreport_Click">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
         </Button>
         <Label Content="Admin" HorizontalAlignment="Left" Margin="342,35,0,0" VerticalAlignment="Top" Width="207" Height="53" FontSize="22" FontWeight="Bold"/>
-        <Button x:Name="formkat" Content="Master &#xD;&#xA;Kategori &amp; Merk" HorizontalAlignment="Left" Margin="321,224,0,0" VerticalAlignment="Top" Width="124" Height="44" Click="formkat_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="HomepageMaster.jpg"/>
-            </Button.Background>
-        </Button>
 
     </Grid>
 </Window>

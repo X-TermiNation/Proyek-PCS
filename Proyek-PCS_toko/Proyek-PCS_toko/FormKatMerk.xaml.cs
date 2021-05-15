@@ -250,5 +250,12 @@ namespace Proyek_PCS_toko
                 MessageBox.Show("Merk sudah terisi di barang lain");
             }
         }
+
+        private void btnkembali_Click(object sender, RoutedEventArgs e)
+        {
+            masterbarang mb = new masterbarang();
+            this.Close();
+            mb.ShowDialog();
+        }
     }
 }
