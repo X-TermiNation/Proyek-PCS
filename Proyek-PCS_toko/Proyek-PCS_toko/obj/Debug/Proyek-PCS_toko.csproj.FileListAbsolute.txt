@@ -161,3 +161,5 @@ E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormKatMerk.
 E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormKatMerk.baml
 E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.cs
 E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.cs
+C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml

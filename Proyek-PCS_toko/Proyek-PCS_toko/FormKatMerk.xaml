@@ -30,12 +30,12 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Button x:Name="inskBtn" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="75,270,0,0" Click="inskBtn_Click"/>
-        <Button x:Name="updkBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="156,270,0,0" IsEnabled="False"/>
+        <Button x:Name="updkBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="156,270,0,0" IsEnabled="False" Click="updkBtn_Click"/>
         <Button x:Name="delkBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="237,270,0,0" IsEnabled="False" Click="delkBtn_Click"/>
         <Label Content="Kode Merk     " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414,205,0,0"/>
         <Label Content="Nama Merk   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="414,231,0,0"/>
-        <TextBox x:Name="kodemerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,208,0,0" IsReadOnly="True"/>
-        <TextBox x:Name="namamerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="225" Margin="511,234,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="namamerkTb_TextChanged">
+        <TextBox x:Name="kodemerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Margin="496,208,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="namamerkTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Margin="496,235,0,0" RenderTransformOrigin="0.5,0.5" TextChanged="namamerkTb_TextChanged">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,10 +46,12 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Button x:Name="insmBtn" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="466,270,0,0" Click="insmBtn_Click"/>
-        <Button x:Name="updmBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,270,0,0" IsEnabled="False"/>
+        <Button x:Name="updmBtn" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,270,0,0" IsEnabled="False" Click="updmBtn_Click"/>
         <Button x:Name="delmBtn" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="628,270,0,0" IsEnabled="False" Click="delmBtn_Click"/>
         <Button x:Name="clrmBtn" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="547,295,0,0" Click="clrmBtn_Click"/>
         <Button x:Name="btnkembali" Content="Back" HorizontalAlignment="Left" Margin="341,368,0,0" VerticalAlignment="Top" Width="104" Height="36" Click="btnkembali_Click"/>
+        <Label Content="Garansi (Hari)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="601,205,0,0"/>
+        <TextBox x:Name="durgaransiTb" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="37" Margin="688,208,0,0" PreviewTextInput="kodemerkTb_Copy_PreviewTextInput"/>
 
     </Grid>
 </Window>

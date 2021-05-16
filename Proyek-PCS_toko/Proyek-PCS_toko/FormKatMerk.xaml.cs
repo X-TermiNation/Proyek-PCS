@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Oracle.DataAccess.Client;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace Proyek_PCS_toko
 {
@@ -60,6 +61,7 @@ namespace Proyek_PCS_toko
             conn.Close();
         }
         int katIndex = -1;
+        
         private void dgvKat_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if(dgvKat.SelectedIndex != -1)
@@ -83,6 +85,12 @@ namespace Proyek_PCS_toko
                 insmBtn.IsEnabled = false;
                 updmBtn.IsEnabled = true;
                 delmBtn.IsEnabled = true;
+                OracleCommand cmd = new OracleCommand("SELECT DURASI FROM GARANSI WHERE KODE_MERK=:KODE",conn);
+                cmd.Parameters.Add(":KODE", dataMerk.Rows[dgvMerk.SelectedIndex][0].ToString());
+                conn.Close();
+                conn.Open();
+                durgaransiTb.Text = Convert.ToInt32(cmd.ExecuteScalar()).ToString();
+                conn.Close();
             }
         }
 
@@ -132,6 +140,32 @@ namespace Proyek_PCS_toko
                     katReq = false;
                 }
             }
+            else
+            {
+                if (namakatTb.Text.Length >= 3)
+                {
+                    if (namakatTb.Text.Substring(0,namakatTb.Text.Length).ToUpper() != dataKat.Rows[dgvKat.SelectedIndex][1].ToString().Substring(0, namakatTb.Text.Length).ToUpper())
+                    {
+                        OracleCommand cmd = new OracleCommand();
+                        cmd.Connection = conn;
+                        cmd.CommandText = $"SELECT AUTOGENKODEKAT('{namakatTb.Text.Substring(0, 3).ToUpper()}') FROM DUAL";
+                        conn.Close();
+                        conn.Open();
+                        kodekatTb.Text = cmd.ExecuteScalar().ToString();
+                        conn.Close();
+                        katReq = true;
+                    }
+                    else
+                    {
+                        kodekatTb.Text = dataKat.Rows[dgvKat.SelectedIndex][0].ToString();
+                    }
+                }
+                else
+                {
+                    kodekatTb.Text = "";
+                    katReq = false;
+                }
+            }
         }
 
         private void clrkBtn_Click(object sender, RoutedEventArgs e)
@@ -152,6 +186,8 @@ namespace Proyek_PCS_toko
             insmBtn.IsEnabled = true;
             updmBtn.IsEnabled = false;
             delmBtn.IsEnabled = false;
+            durgaransiTb.Text = "";
+
         }
         bool merkReq = false;
         private void namamerkTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -168,6 +204,32 @@ namespace Proyek_PCS_toko
                     kodemerkTb.Text = cmd.ExecuteScalar().ToString();
                     conn.Close();
                     merkReq = true;
+                }
+                else
+                {
+                    kodemerkTb.Text = "";
+                    merkReq = false;
+                }
+            }
+            else
+            {
+                if (namamerkTb.Text.Length >= 3)
+                { 
+                    if (namamerkTb.Text.Substring(0, namamerkTb.Text.Length).ToUpper() != dataMerk.Rows[dgvMerk.SelectedIndex][1].ToString().Substring(0, namamerkTb.Text.Length).ToUpper())
+                    {
+                        OracleCommand cmd = new OracleCommand();
+                        cmd.Connection = conn;
+                        cmd.CommandText = $"SELECT AUTOGENKODEMERK('{namamerkTb.Text.Substring(0, 3).ToUpper()}') FROM DUAL";
+                        conn.Close();
+                        conn.Open();
+                        kodemerkTb.Text = cmd.ExecuteScalar().ToString();
+                        conn.Close();
+                        merkReq = true;
+                    }
+                    else
+                    {
+                        kodemerkTb.Text = dataMerk.Rows[dgvMerk.SelectedIndex][0].ToString();
+                    }
                 }
                 else
                 {
@@ -195,6 +257,8 @@ namespace Proyek_PCS_toko
                 insmBtn.IsEnabled = true;
                 updmBtn.IsEnabled = false;
                 delmBtn.IsEnabled = false;
+                durgaransiTb.Text = "";
+
             }
             else
             {
@@ -218,6 +282,7 @@ namespace Proyek_PCS_toko
                 dgvKat.SelectedIndex = -1;
                 inskBtn.IsEnabled = true;
                 updkBtn.IsEnabled = false;
+
                 delkBtn.IsEnabled = false;
             }
             catch
@@ -226,7 +291,7 @@ namespace Proyek_PCS_toko
             }
             
         }
-
+        
         private void delmBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -244,6 +309,8 @@ namespace Proyek_PCS_toko
                 insmBtn.IsEnabled = true;
                 updmBtn.IsEnabled = false;
                 delmBtn.IsEnabled = false;
+                durgaransiTb.Text = "";
+
             }
             catch
             {
@@ -256,6 +323,60 @@ namespace Proyek_PCS_toko
             masterbarang mb = new masterbarang();
             this.Close();
             mb.ShowDialog();
+        }
+
+        private void updkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OracleCommand cmd = new OracleCommand("UPDATE KATEGORI SET KODE_KAT=:NEWKAT, NAMA_KAT=:NEWNAMA WHERE KODE_KAT=:OLDKAT", conn);
+            cmd.Parameters.Add(":NEWKAT", kodekatTb.Text);
+            cmd.Parameters.Add(":NEWNAMA", namakatTb.Text);
+            cmd.Parameters.Add(":OLDKAT", dataKat.Rows[dgvKat.SelectedIndex][0]);
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            loadData();
+            kodekatTb.Text = "";
+            namakatTb.Text = "";
+            dgvKat.SelectedIndex = -1;
+            inskBtn.IsEnabled = true;
+            updkBtn.IsEnabled = false;
+            delkBtn.IsEnabled = false;
+        }
+
+        private void kodemerkTb_Copy_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+            TextBox tb = sender as TextBox;
+            e.Handled = Regex.IsMatch(e.Text, @"^[^0-9\d\s]+$");
+
+        }
+
+        private void updmBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OracleCommand cmd = new OracleCommand("UPDATE MERK SET KODE_MERK=:NEWMERK, NAMA_MERK=:NEWNAMA WHERE KODE_MERK=:OLDMERK", conn);
+            cmd.Parameters.Add(":NEWMERK", kodemerkTb.Text);
+            cmd.Parameters.Add(":NEWNAMA", namamerkTb.Text);
+            cmd.Parameters.Add(":OLDMERK", dataMerk.Rows[dgvMerk.SelectedIndex][0]);
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            cmd = new OracleCommand("UPDATE GARANSI SET DURASI=:DUR WHERE KODE_MERK=:KODE",conn);
+            cmd.Parameters.Add(":DUR", Convert.ToInt32(durgaransiTb.Text));
+            cmd.Parameters.Add(":KODE", kodemerkTb.Text);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            loadData();
+            kodemerkTb.Text = "";
+            namamerkTb.Text = "";
+            dgvMerk.SelectedIndex = -1;
+            insmBtn.IsEnabled = true;
+            updmBtn.IsEnabled = false;
+            delmBtn.IsEnabled = false;
+            durgaransiTb.Text = "";
         }
     }
 }
