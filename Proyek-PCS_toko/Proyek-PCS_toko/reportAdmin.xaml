@@ -16,9 +16,9 @@
         <Label Content="Kategori" HorizontalAlignment="Left" Margin="188,73,0,0" VerticalAlignment="Top"/>
         <Label Content="Merk" HorizontalAlignment="Left" Margin="188,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.745,2.148"/>
         <DatePicker x:Name="duaDATE" HorizontalAlignment="Left" Margin="422,33,0,0" VerticalAlignment="Top" IsEnabled="False"/>
-        <GroupBox Header="Search Engine" HorizontalAlignment="Left" Height="147" Margin="160,8,-0.4,0" VerticalAlignment="Top" Width="634"/>
+        <GroupBox Header="Search Engine" HorizontalAlignment="Left" Height="147" Margin="162,8,-0.4,0" VerticalAlignment="Top" Width="632"/>
         <GroupBox Header="Option" HorizontalAlignment="Left" Height="145" Margin="10,10,0,0" VerticalAlignment="Top" Width="135"/>
-        <Button x:Name="submitBTN" Content="Submit" HorizontalAlignment="Left" Margin="253,171,0,0" VerticalAlignment="Top" Width="271" Click="submitBTN_Click"/>
+        <Button x:Name="submitBTN" Content="Submit" HorizontalAlignment="Left" Margin="253,171,0,0" VerticalAlignment="Top" Width="271" Click="submitBTN_Click" IsEnabled="False"/>
         <ComboBox x:Name="katCB" HorizontalAlignment="Left" Margin="266,73,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <ComboBox x:Name="merkCB" HorizontalAlignment="Left" Margin="266,113,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
         <RadioButton x:Name="hargaReportRB" Content="Lihat Harga" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Checked="hargaReportRB_Checked"/>

@@ -163,3 +163,5 @@ E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.c
 E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml
 C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.cs
 C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml
+C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.g.cs
+C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml

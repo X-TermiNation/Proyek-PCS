@@ -66,20 +66,29 @@ namespace Proyek_PCS_toko
 
         private void hargaReportRB_Checked(object sender, RoutedEventArgs e)
         {
+            pertamaDATE.IsEnabled = false;
+            duaDATE.IsEnabled = false;
             katCB.IsEnabled = true;
             merkCB.IsEnabled = true;
+            submitBTN.IsEnabled = true;
         }
 
         private void stockReportRB_Checked(object sender, RoutedEventArgs e)
         {
+            pertamaDATE.IsEnabled = false;
+            duaDATE.IsEnabled = false;
             katCB.IsEnabled = true;
             merkCB.IsEnabled = true;
+            submitBTN.IsEnabled = true;
         }
 
         private void pemasukanReportRB_Checked(object sender, RoutedEventArgs e)
         {
+            pertamaDATE.IsEnabled = true;
+            duaDATE.IsEnabled = true;
             katCB.IsEnabled = true;
             merkCB.IsEnabled = true;
+            submitBTN.IsEnabled = true;
         }
 
         private void submitBTN_Click(object sender, RoutedEventArgs e)
@@ -131,6 +140,49 @@ namespace Proyek_PCS_toko
             else if (pemasukanReportRB.IsChecked == true)
             {
                 pemasukanReport rpt = new pemasukanReport();
+                if(pertamaDATE.DisplayDate == null || duaDATE.DisplayDate == null ||katCB.Text.ToString() == "" || merkCB.Text.ToString() == "")
+                {
+                    MessageBox.Show("Fill BLank");
+                }
+                else
+                {
+                    rpt.SetParameterValue("keduaParam", duaDATE.DisplayDate);
+                    rpt.SetParameterValue("pertamaParam", pertamaDATE.DisplayDate);
+                    if (katCB.Text.ToString() != "")
+                    {
+                        rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                    }
+                    else
+                    {
+                        rpt.SetParameterValue("katParam", "1");
+                    }
+                    if (merkCB.Text.ToString() != "")
+                    {
+                        rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                    }
+                    else
+                    {
+                        rpt.SetParameterValue("merkParam", "1");
+                    }
+                    if (katCB.Text.ToString() != "")
+                    {
+                        rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                    }
+                    else
+                    {
+                        rpt.SetParameterValue("katParam", "1");
+                    }
+                    if (merkCB.Text.ToString() != "")
+                    {
+                        rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                    }
+                    else
+                    {
+                        rpt.SetParameterValue("merkParam", "1");
+                    }
+                    rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
+                    reportCRV.ViewerCore.ReportSource = rpt;
+                }
             }
         }
 
