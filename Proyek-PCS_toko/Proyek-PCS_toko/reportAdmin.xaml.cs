@@ -25,6 +25,8 @@ namespace Proyek_PCS_toko
         DataTable ds, dt, pertanyaan;
         DataTable temp;
         OracleDataAdapter da;
+        string kodemerk;
+        string kodekat;
         public reportAdmin()
         {
             InitializeComponent();
@@ -36,12 +38,12 @@ namespace Proyek_PCS_toko
             conn = MainWindow.conn;
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = $"SELECT KODE_MERK from MERK ORDER BY KODE_MERK ASC";
+            cmd.CommandText = $"SELECT NAMA_MERK from MERK ORDER BY KODE_MERK ASC";
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                merkCB.Items.Add(reader[0]);
+                merkCB.Items.Add(reader.GetString(0));
             }
             conn.Close();
         }
@@ -50,12 +52,12 @@ namespace Proyek_PCS_toko
             conn = MainWindow.conn;
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = $"SELECT KODE_KAT from KATEGORI ORDER BY KODE_KAT ASC";
+            cmd.CommandText = $"SELECT NAMA_KAT from KATEGORI ORDER BY KODE_KAT ASC";
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                katCB.Items.Add(reader[0]);
+                katCB.Items.Add(reader.GetString(0));
             }
             conn.Close();
         }
@@ -91,14 +93,28 @@ namespace Proyek_PCS_toko
             submitBTN.IsEnabled = true;
         }
 
+        private void getcurrentkode()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.CommandText = $"select KODE_KAT from KATEGORI where NAMA_KAT = '{katCB.Text}'";
+            kodekat = cmd.ExecuteScalar().ToString();
+            cmd.CommandText = $"select KODE_MERK from MERK where NAMA_MERK = '{merkCB.Text}'";
+            kodemerk = cmd.ExecuteScalar().ToString();
+            conn.Close();
+        }
+
+
         private void submitBTN_Click(object sender, RoutedEventArgs e)
         {
-            if(hargaReportRB.IsChecked == true)
+            getcurrentkode();
+            if (hargaReportRB.IsChecked == true)
             {
                 ReportHarga rpt = new ReportHarga();
                 if (katCB.Text.ToString() != "")
                 {
-                    rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                    rpt.SetParameterValue("katParam", kodekat);
                 }
                 else
                 {
@@ -106,7 +122,7 @@ namespace Proyek_PCS_toko
                 }
                 if (merkCB.Text.ToString() != "")
                 {
-                    rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                    rpt.SetParameterValue("merkParam", kodemerk);
                 }
                 else
                 {
@@ -120,7 +136,7 @@ namespace Proyek_PCS_toko
                 ReportStock rpt = new ReportStock();
                 if (katCB.Text.ToString() != "")
                 {
-                    rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                    rpt.SetParameterValue("katParam", kodemerk);
                 }
                 else
                 {
@@ -128,7 +144,7 @@ namespace Proyek_PCS_toko
                 }
                 if (merkCB.Text.ToString() != "")
                 {
-                    rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                    rpt.SetParameterValue("merkParam", kodemerk);
                 }
                 else
                 {
@@ -140,7 +156,7 @@ namespace Proyek_PCS_toko
             else if (pemasukanReportRB.IsChecked == true)
             {
                 pemasukanReport rpt = new pemasukanReport();
-                if(pertamaDATE.DisplayDate == null || duaDATE.DisplayDate == null ||katCB.Text.ToString() == "" || merkCB.Text.ToString() == "")
+                if (pertamaDATE.DisplayDate == null || duaDATE.DisplayDate == null || katCB.Text.ToString() == "" || merkCB.Text.ToString() == "")
                 {
                     MessageBox.Show("Fill BLank");
                 }
@@ -150,7 +166,7 @@ namespace Proyek_PCS_toko
                     rpt.SetParameterValue("pertamaParam", pertamaDATE.DisplayDate);
                     if (katCB.Text.ToString() != "")
                     {
-                        rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                        rpt.SetParameterValue("katParam", kodekat);
                     }
                     else
                     {
@@ -158,7 +174,7 @@ namespace Proyek_PCS_toko
                     }
                     if (merkCB.Text.ToString() != "")
                     {
-                        rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                        rpt.SetParameterValue("merkParam", kodemerk);
                     }
                     else
                     {
@@ -166,7 +182,7 @@ namespace Proyek_PCS_toko
                     }
                     if (katCB.Text.ToString() != "")
                     {
-                        rpt.SetParameterValue("katParam", katCB.Text.ToString());
+                        rpt.SetParameterValue("katParam", kodekat);
                     }
                     else
                     {
@@ -174,7 +190,7 @@ namespace Proyek_PCS_toko
                     }
                     if (merkCB.Text.ToString() != "")
                     {
-                        rpt.SetParameterValue("merkParam", merkCB.Text.ToString());
+                        rpt.SetParameterValue("merkParam", kodemerk);
                     }
                     else
                     {

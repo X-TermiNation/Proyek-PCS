@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Proyek_PCS_toko"
         mc:Ignorable="d"
         Title="register" Height="519" Width="504">
-    <Grid Width="496" HorizontalAlignment="Left">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="395*"/>
