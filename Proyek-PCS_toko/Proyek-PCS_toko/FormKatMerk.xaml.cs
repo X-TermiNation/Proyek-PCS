@@ -144,7 +144,7 @@ namespace Proyek_PCS_toko
             {
                 if (namakatTb.Text.Length >= 3)
                 {
-                    if (namakatTb.Text.Substring(0,namakatTb.Text.Length).ToUpper() != dataKat.Rows[dgvKat.SelectedIndex][1].ToString().Substring(0, namakatTb.Text.Length).ToUpper())
+                    if (namakatTb.Text.Substring(0,namakatTb.Text.Length).ToUpper() != dataKat.Rows[dgvKat.SelectedIndex][1].ToString().Substring(0, dataKat.Rows[dgvKat.SelectedIndex][1].ToString().Length).ToUpper())
                     {
                         OracleCommand cmd = new OracleCommand();
                         cmd.Connection = conn;
