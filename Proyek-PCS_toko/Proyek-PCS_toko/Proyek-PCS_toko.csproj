@@ -72,6 +72,9 @@
     <Compile Include="FormKatMerk.xaml.cs">
       <DependentUpon>FormKatMerk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormUser.xaml.cs">
+      <DependentUpon>FormUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="masterbarang.xaml.cs">
       <DependentUpon>masterbarang.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
     </Compile>
     <Compile Include="user.cs" />
     <Page Include="FormKatMerk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

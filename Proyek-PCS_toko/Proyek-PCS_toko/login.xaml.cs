@@ -55,20 +55,30 @@ namespace Proyek_PCS_toko
             }
             else
             {
+                int id = -1;
                 for (int i = 0; i < us.Count; i++)
                 {
                     if (tbusername.Text.ToUpper() == us[i].Username.ToUpper())
                     {
                         if (tbpassword.Password.ToUpper() == us[i].Password.ToUpper())
+                        {
                             log = true;
+                            id = us[i].Id;
+                        }
                         else
+                        {
                             MessageBox.Show("password salah");
+
+                        }
                     }
                 }
 
                 if (log)
                 {
                     MessageBox.Show("Berhasil login customer");
+                    FormUser fu = new FormUser(id);
+                    this.Close();
+                    fu.ShowDialog();
                 }
                 else
                 {
