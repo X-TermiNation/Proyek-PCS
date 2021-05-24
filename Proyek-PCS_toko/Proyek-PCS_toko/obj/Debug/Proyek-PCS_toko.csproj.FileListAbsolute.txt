@@ -167,3 +167,5 @@ C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek
 C:\Users\Tan\Desktop\Semester 4\Proyek New PCS\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\register.baml
 C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormUser.g.cs
 C:\Users\JohnCS\Documents\GitHub\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormUser.baml
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormUser.g.cs
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\FormUser.baml

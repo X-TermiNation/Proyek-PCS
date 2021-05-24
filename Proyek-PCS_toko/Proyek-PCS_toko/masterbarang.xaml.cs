@@ -108,17 +108,21 @@ namespace Proyek_PCS_toko
         private void btncari_Click(object sender, RoutedEventArgs e)
         {
             string key = "";
+            string query = "";
             if (radionama.IsChecked == true)
             {
                 key = "NAMA_BARANG";
+                query = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT AND BARANG." + key.ToUpper() + " LIKE '%" + textcari.Text + "%' ORDER BY id ASC";
             }
             else if (radiomerk.IsChecked == true)
             {
-                key = "MERK";
+                key = "NAMA_MERK";
+                query = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT AND MERK." + key.ToUpper() + " LIKE '%" + textcari.Text + "%' ORDER BY id ASC";
             }
             else if (radiokategori.IsChecked == true)
             {
-                key = "KATEGORI";
+                key = "NAMA_KAT";
+                query = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT AND KATEGORI." + key.ToUpper() + " LIKE '%" + textcari.Text + "%' ORDER BY id ASC";
             }
             else if (radiosemua.IsChecked == true)
             {
@@ -136,7 +140,7 @@ namespace Proyek_PCS_toko
                 if (textcari.Text != "")
                 {
                     cmd.Connection = conn;
-                    cmd.CommandText = "SELECT ID ,NAMA_BARANG AS \"NAMA BARANG\",MERK,KATEGORI,STOK,HARGA FROM BARANG where "+key.ToUpper()+ " LIKE '%" + textcari.Text.ToUpper() + "%' ORDER BY ID ASC";
+                    cmd.CommandText = query;
                     conn.Close();
                     conn.Open();
                     cmd.ExecuteReader();
