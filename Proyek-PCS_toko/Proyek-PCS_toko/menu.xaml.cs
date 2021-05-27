@@ -38,5 +38,12 @@ namespace Proyek_PCS_toko
             this.Close();
         }
 
+        private void btnmastertransaksi_Click(object sender, RoutedEventArgs e)
+        {
+            transaksiMaster tm = new transaksiMaster();
+            this.Hide();
+            tm.Show();
+
+        }
     }
 }

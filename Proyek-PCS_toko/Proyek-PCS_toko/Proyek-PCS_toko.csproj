@@ -102,6 +102,9 @@
       <DependentUpon>ReportHarga.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="transaksiMaster.xaml.cs">
+      <DependentUpon>transaksiMaster.xaml</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <Page Include="FormKatMerk.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="reportAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="transaksiMaster.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

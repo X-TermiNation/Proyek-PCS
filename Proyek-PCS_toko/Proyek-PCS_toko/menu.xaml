@@ -15,7 +15,7 @@
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnmastertransaksi" Content="Master Transaksi" HorizontalAlignment="Left" Margin="321,199,0,0" VerticalAlignment="Top" Width="124" Height="44">
+        <Button x:Name="btnmastertransaksi" Content="Master Transaksi" HorizontalAlignment="Left" Margin="321,199,0,0" VerticalAlignment="Top" Width="124" Height="44" Click="btnmastertransaksi_Click">
             <Button.Background>
                 <ImageBrush ImageSource="HomepageMaster.jpg"/>
             </Button.Background>
