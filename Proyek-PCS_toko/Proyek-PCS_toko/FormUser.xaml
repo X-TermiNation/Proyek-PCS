@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="FormUser" Height="450" Width="800">
     <Grid>
-        
+        <DockPanel HorizontalAlignment="Left" Height="55" LastChildFill="False" VerticalAlignment="Top" Width="792" Background="#FF1CD3A9">
+            <Label Content="ALTERNATECH" Height="55" VerticalAlignment="Top" Width="155" FontFamily="Stencil" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
+            <Button x:Name="homeButton" Content="HOME" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="30,0,0,0" BorderThickness="0" FontSize="20"/>
+            <Button x:Name="shopButton" Content="SHOP" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20"/>
+            <Button x:Name="tempBtn" Content="IDK" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20"/>
+        </DockPanel>
+        <Label x:Name="namaLabel" Content="te" Height="45" VerticalAlignment="Top" FontFamily="Sitka Small" VerticalContentAlignment="Center" FontSize="20" Margin="25,55,0,0" HorizontalAlignment="Left" Focusable="True" Width="431"/>
+        <Label x:Name="saldoLabel" Content="sa" Height="39" VerticalAlignment="Top" FontFamily="Sitka Small" Margin="25,100,0,0" HorizontalAlignment="Left" Focusable="True" Width="431" FontSize="15"/>
     </Grid>
 </Window>

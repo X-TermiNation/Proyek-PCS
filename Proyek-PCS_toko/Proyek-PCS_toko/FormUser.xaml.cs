@@ -20,10 +20,14 @@ namespace Proyek_PCS_toko
     public partial class FormUser : Window
     {
         int userId;
+        loggedUser user;
         public FormUser(int id)
         {
             InitializeComponent();
-            userId = id;
+            user = new loggedUser(id);
+            namaLabel.Content = $"Welcome, {user.namaCust}";
+            saldoLabel.Content = $"Saldo : {user.saldo}";
         }
+
     }
 }

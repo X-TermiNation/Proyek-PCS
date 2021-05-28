@@ -75,6 +75,7 @@
     <Compile Include="FormUser.xaml.cs">
       <DependentUpon>FormUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="loggedUser.cs" />
     <Compile Include="masterbarang.xaml.cs">
       <DependentUpon>masterbarang.xaml</DependentUpon>
     </Compile>
