@@ -9,17 +9,24 @@
     <Grid>
         <DockPanel HorizontalAlignment="Left" Height="55" LastChildFill="False" VerticalAlignment="Top" Width="792" Background="#FF1CD3A9">
             <Label Content="ALTERNATECH" Height="55" VerticalAlignment="Top" Width="155" FontFamily="Stencil" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
-            <Button x:Name="homeButton" Content="HOME" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="30,0,0,0" BorderThickness="0" FontSize="20"/>
+            <Button x:Name="homeButton" Content="HOME" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="30,0,0,0" BorderThickness="0" FontSize="20" Click="homeButton_Click"/>
             <Button x:Name="shopButton" Content="SHOP" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20"/>
-            <Button x:Name="btnsaldo" Content="SALDO" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20"/>
+            <Button x:Name="btnsaldo" Content="SALDO" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20" Click="btnsaldo_Click"/>
         </DockPanel>
         <Label x:Name="namaLabel" Content="te" Height="45" VerticalAlignment="Top" FontFamily="Sitka Small" VerticalContentAlignment="Center" FontSize="20" Margin="25,55,0,0" HorizontalAlignment="Left" Focusable="True" Width="431"/>
         <Label x:Name="saldoLabel" Content="sa" Height="39" VerticalAlignment="Top" FontFamily="Sitka Small" Margin="25,100,0,0" HorizontalAlignment="Left" Focusable="True" Width="431" FontSize="15"/>
-        <Grid x:Name="gridsaldo" HorizontalAlignment="Left" Height="158" Margin="10,144,0,0" VerticalAlignment="Top" Width="508">
+        <Grid x:Name="gridsaldo" HorizontalAlignment="Left" Height="158" Margin="10,144,0,0" VerticalAlignment="Top" Width="508" Visibility="Hidden">
             <TextBox x:Name="tbsaldo" HorizontalAlignment="Left" Height="24" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="479" PreviewTextInput="tbsaldo_PreviewTextInput"/>
             <Button x:Name="btnisisaldo" Content="Isi saldo" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="74" Click="btnisisaldo_Click" Height="29"/>
             <ComboBox x:Name="cblistpembayaran" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="479" SelectedIndex="0"/>
             <Label Content="Jumlah Saldo:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,1.538"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="503,363,0,-44" VerticalAlignment="Top" Width="100"/>
+        <Grid x:Name="gridhome" HorizontalAlignment="Left" Height="230" Margin="10,144,0,0" VerticalAlignment="Top" Width="731">
+            <Image HorizontalAlignment="Left" Height="107" Margin="10,50,0,0" VerticalAlignment="Top" Width="117" Source="dummy-img.png" Stretch="Fill"/>
+            <Label Content="RECOMMENDED!!!" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Perpetua Titling MT" FontWeight="Bold"/>
+            <Label x:Name="namaproduk" Content="Label" HorizontalAlignment="Left" Margin="132,50,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <Label x:Name="hargalabel" Content="Label" HorizontalAlignment="Left" Margin="132,92,0,0" VerticalAlignment="Top" FontSize="15"/>
         </Grid>
     </Grid>
 </Window>

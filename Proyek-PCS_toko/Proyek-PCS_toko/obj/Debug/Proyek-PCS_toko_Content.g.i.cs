@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("regbackground.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dummy-img.png")]
 
 

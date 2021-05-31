@@ -29,6 +29,8 @@ namespace Proyek_PCS_toko
         OracleConnection conn;
         DataTable ds;
         OracleDataAdapter da;
+        Random rnd = new Random();
+        List<int> idBarang = new List<int>();
         public FormUser(int id)
         {
             conn = MainWindow.conn;
@@ -38,6 +40,36 @@ namespace Proyek_PCS_toko
             saldoLabel.Content = $"Saldo : {user.saldo}";
             userId = id;
             saldo();
+            itemReset();
+            int rand = rnd.Next(0, idBarang.Count());
+            randomizeRec(rand);
+        }
+        
+        private void randomizeRec(int idBarang)
+        {
+            OracleCommand cmd = new OracleCommand("SELECT NAMA_BARANG, HARGA FROM BARANG WHERE ID = :ID", conn);
+            cmd.Parameters.Add(":ID", idBarang);
+            conn.Close();
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                namaproduk.Content = reader[0].ToString();
+                hargalabel.Content = $"Harga: {reader[1].ToString()}";
+            }
+        }
+
+        private void itemReset()
+        {
+            OracleCommand cmd = new OracleCommand("SELECT ID FROM BARANG", conn);
+            conn.Close();
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                idBarang.Add(Convert.ToInt32(reader[0]));
+            }
+            conn.Close();
         }
 
         private void saldo()
@@ -91,6 +123,21 @@ namespace Proyek_PCS_toko
                 }
                 conn.Close();
             }
+        }
+
+        private void btnsaldo_Click(object sender, RoutedEventArgs e)
+        {
+            gridhome.Visibility = Visibility.Hidden;
+            gridsaldo.Visibility = Visibility.Visible;
+        }
+
+        private void homeButton_Click(object sender, RoutedEventArgs e)
+        {
+            gridsaldo.Visibility = Visibility.Hidden;
+            gridhome.Visibility = Visibility.Visible;
+            itemReset();
+            int rand = rnd.Next(0, idBarang.Count());
+            randomizeRec(rand);
         }
     }
 }
