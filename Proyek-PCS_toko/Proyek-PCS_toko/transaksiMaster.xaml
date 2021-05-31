@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyek_PCS_toko"
         mc:Ignorable="d"
-        Title="transaksiMaster" Height="662" Width="1090">
+        Title="transaksiMaster" Height="549.5" Width="551.5">
     <Grid>
-        <DataGrid x:Name="dgvTransaksi" HorizontalAlignment="Left" Height="380" Margin="10,10,0,0" VerticalAlignment="Top" Width="514" ColumnWidth="*" IsReadOnly="True"/>
-        <DataGrid x:Name="dgvsaldo" HorizontalAlignment="Left" Height="377" Margin="556,10,-51,0" VerticalAlignment="Top" Width="514" ColumnWidth="*" IsReadOnly="True" MouseDoubleClick="dgvsaldo_MouseDoubleClick"/>
-        <TextBox x:Name="tbgetsaldo" HorizontalAlignment="Left" Height="25" Margin="556,404,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsReadOnly="True"/>
-        <Button x:Name="btnreject" Content="Reject" HorizontalAlignment="Left" Margin="939,404,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnreject_Click"/>
-        <Button x:Name="btnaccept" Content="Accept" HorizontalAlignment="Left" Margin="817,404,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnaccept_Click"/>
-        <Button x:Name="btnback" Content="Back to menu" HorizontalAlignment="Left" Margin="487,590,0,0" VerticalAlignment="Top" Width="104" Height="31" Click="btnback_Click"/>
+        <Button x:Name="btnback" Content="Back to menu" HorizontalAlignment="Left" Margin="430,479,0,0" VerticalAlignment="Top" Width="104" Height="30" Click="btnback_Click"/>
+        <Grid x:Name="gridmastertransaksi" HorizontalAlignment="Left" Height="413" Margin="10,34,0,0" VerticalAlignment="Top" Width="524">
+            <DataGrid x:Name="dgvTransaksi" HorizontalAlignment="Left" Height="380" VerticalAlignment="Top" Width="514" ColumnWidth="*" IsReadOnly="True"/>
+        </Grid>
+        <Grid x:Name="gridsaldo" HorizontalAlignment="Left" Height="429" Margin="0,18,0,0" VerticalAlignment="Top" Width="534">
+            <DataGrid x:Name="dgvsaldo" HorizontalAlignment="Left" Height="376" Margin="16,0,0,0" VerticalAlignment="Top" Width="514" ColumnWidth="*" IsReadOnly="True" MouseDoubleClick="dgvsaldo_MouseDoubleClick"/>
+            <TextBox x:Name="tbgetsaldo" HorizontalAlignment="Left" Height="24" Margin="31,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" IsReadOnly="True"/>
+            <Button x:Name="btnreject" Content="Reject" HorizontalAlignment="Left" Margin="415,399,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="btnreject_Click"/>
+            <Button x:Name="btnaccept" Content="Accept" HorizontalAlignment="Left" Margin="293,399,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="btnaccept_Click"/>
+        </Grid>
+        <Button x:Name="btnchange" Content="Goto Request Saldo" HorizontalAlignment="Left" Margin="10,479,0,0" VerticalAlignment="Top" Width="132" Height="30" Click="btnchange_Click"/>
     </Grid>
 </Window>

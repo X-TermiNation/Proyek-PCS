@@ -26,7 +26,7 @@ namespace Proyek_PCS_toko
         OracleDataAdapter da;
         DataTable dataTrans;
         DataTable datasaldo;
-
+        Boolean mtran = true;
         int idcus,idsaldo,saldo;
         string namacus;
         public transaksiMaster()
@@ -35,6 +35,20 @@ namespace Proyek_PCS_toko
             conn = MainWindow.conn;
             loadDataTransaksi();
             loadDataSaldo();
+
+            mtransaksi();
+        }
+
+        private void mtransaksi()
+        {
+            gridmastertransaksi.Visibility = Visibility.Visible;
+            gridsaldo.Visibility = Visibility.Collapsed;
+        }
+
+        private void msaldo()
+        {
+            gridmastertransaksi.Visibility = Visibility.Collapsed;
+            gridsaldo.Visibility = Visibility.Visible;
         }
 
         private void loadDataTransaksi()
@@ -112,6 +126,23 @@ namespace Proyek_PCS_toko
             menu mn = new menu();
             this.Close();
             mn.ShowDialog();
+        }
+
+        private void btnchange_Click(object sender, RoutedEventArgs e)
+        {
+            if (mtran==true)
+            {
+                btnchange.Content = "Goto Transaksi";
+                mtran = false;
+                msaldo();
+            }
+            else if(mtran==false)
+            {
+                btnchange.Content = "Goto Request Saldo";
+                mtran = true;
+                mtransaksi();
+            }
+
         }
 
         private void btnaccept_Click(object sender, RoutedEventArgs e)
