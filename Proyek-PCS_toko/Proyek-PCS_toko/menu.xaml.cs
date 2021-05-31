@@ -45,5 +45,12 @@ namespace Proyek_PCS_toko
             tm.Show();
 
         }
+
+        private void btnlogout_Click(object sender, RoutedEventArgs e)
+        {
+            login lg = new login();
+            this.Close();
+            lg.ShowDialog();
+        }
     }
 }

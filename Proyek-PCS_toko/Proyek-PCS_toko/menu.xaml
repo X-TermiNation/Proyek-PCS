@@ -26,6 +26,11 @@
             </Button.Background>
         </Button>
         <Label Content="Admin" HorizontalAlignment="Left" Margin="342,35,0,0" VerticalAlignment="Top" Width="207" Height="53" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="btnlogout" Content="Logout" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Width="97" Height="28" Click="btnlogout_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="HomepageMaster.jpg"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
