@@ -139,5 +139,12 @@ namespace Proyek_PCS_toko
             int rand = rnd.Next(0, idBarang.Count());
             randomizeRec(rand);
         }
+
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            login lg = new login();
+            this.Close();
+            lg.ShowDialog();
+        }
     }
 }
