@@ -10,7 +10,7 @@
         <DockPanel HorizontalAlignment="Left" Height="55" LastChildFill="False" VerticalAlignment="Top" Width="792" Background="#FF1CD3A9">
             <Label Content="ALTERNATECH" Height="55" VerticalAlignment="Top" Width="155" FontFamily="Stencil" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
             <Button x:Name="homeButton" Content="HOME" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="30,0,0,0" BorderThickness="0" FontSize="20" Click="homeButton_Click"/>
-            <Button x:Name="shopButton" Content="SHOP" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20"/>
+            <Button x:Name="shopButton" Content="SHOP" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20" Click="shopButton_Click"/>
             <Button x:Name="btnsaldo" Content="SALDO" Height="55" VerticalAlignment="Top" Width="79" Background="#FF1CD3A9" Margin="0" BorderThickness="0" FontSize="20" Click="btnsaldo_Click"/>
         </DockPanel>
         <Label x:Name="namaLabel" Content="te" Height="32" VerticalAlignment="Top" FontFamily="Sitka Small" VerticalContentAlignment="Center" FontSize="15" Margin="449,10,0,0" HorizontalAlignment="Left" Focusable="True" Width="227"/>
@@ -28,7 +28,11 @@
             <Label x:Name="namaproduk" Content="Label" HorizontalAlignment="Left" Margin="132,50,0,0" VerticalAlignment="Top" FontSize="20"/>
             <Label x:Name="hargalabel" Content="Label" HorizontalAlignment="Left" Margin="132,92,0,0" VerticalAlignment="Top" FontSize="15"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="270" Margin="10,139,0,0" VerticalAlignment="Top" Width="772"/>
+        <Grid HorizontalAlignment="Left" Height="336" Margin="10,73,0,0" VerticalAlignment="Top" Width="772">
+            <DataGrid x:Name="dg_shop" HorizontalAlignment="Left" Height="229" Margin="16,21,0,0" VerticalAlignment="Top" Width="696" SelectionChanged="DataGrid_SelectionChanged" Visibility="Hidden"/>
+            <Button x:Name="btnlihatkeranjang" Content="Lihat Keranjang" HorizontalAlignment="Left" Margin="595,307,0,0" VerticalAlignment="Top" Width="117" Visibility="Hidden" Click="btnlihatkeranjang_Click"/>
+            <Button x:Name="btnmasukkeranjang" Content="Masukkan Keranjang" HorizontalAlignment="Left" Margin="445,307,0,0" VerticalAlignment="Top" Width="128" Visibility="Hidden" Click="btnmasukkeranjang_Click"/>
+        </Grid>
         <Button x:Name="logoutBtn" Content="Log out" HorizontalAlignment="Left" Margin="693,19,0,0" VerticalAlignment="Top" Width="75" Background="#FFFF6969" Click="logoutBtn_Click"/>
     </Grid>
 </Window>

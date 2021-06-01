@@ -44,7 +44,24 @@ namespace Proyek_PCS_toko
             int rand = rnd.Next(0, idBarang.Count());
             randomizeRec(rand);
         }
-        
+        private void loadData()
+        {
+            ds = new DataTable();
+            OracleCommand cmd = new OracleCommand();
+            da = new OracleDataAdapter();
+
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT ORDER BY id ASC";
+
+            conn.Close();
+            conn.Open();
+            cmd.ExecuteReader();
+            da.SelectCommand = cmd;
+            da.Fill(ds);
+            dg_shop.ItemsSource = ds.DefaultView;
+            conn.Close();
+        }
+
         private void randomizeRec(int idBarang)
         {
             OracleCommand cmd = new OracleCommand("SELECT NAMA_BARANG, HARGA FROM BARANG WHERE ID = :ID", conn);
@@ -57,6 +74,7 @@ namespace Proyek_PCS_toko
                 namaproduk.Content = reader[0].ToString();
                 hargalabel.Content = $"Harga: {reader[1].ToString()}";
             }
+            conn.Close();
         }
 
         private void itemReset()
@@ -129,12 +147,18 @@ namespace Proyek_PCS_toko
         {
             gridhome.Visibility = Visibility.Hidden;
             gridsaldo.Visibility = Visibility.Visible;
+            dg_shop.Visibility = Visibility.Hidden;
+            btnlihatkeranjang.Visibility = Visibility.Hidden;
+            btnmasukkeranjang.Visibility = Visibility.Hidden;
         }
 
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Visible;
+            dg_shop.Visibility = Visibility.Hidden;
+            btnlihatkeranjang.Visibility = Visibility.Hidden;
+            btnmasukkeranjang.Visibility = Visibility.Hidden;
             itemReset();
             int rand = rnd.Next(0, idBarang.Count());
             randomizeRec(rand);
@@ -145,6 +169,29 @@ namespace Proyek_PCS_toko
             login lg = new login();
             this.Close();
             lg.ShowDialog();
+        }
+
+        private void shopButton_Click(object sender, RoutedEventArgs e)
+        {
+            dg_shop.Visibility = Visibility.Visible;
+            loadData();
+            btnlihatkeranjang.Visibility = Visibility.Visible;
+            btnmasukkeranjang.Visibility = Visibility.Visible;
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnmasukkeranjang_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnlihatkeranjang_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
