@@ -35,6 +35,7 @@ namespace Proyek_PCS_toko
         {
             conn = MainWindow.conn;
             InitializeComponent();
+            formUser.WindowState = WindowState.Maximized;
             user = new loggedUser(id);
             namaLabel.Content = $"Welcome, {user.namaCust}";
             saldoLabel.Content = $"Saldo : {user.saldo}";
@@ -51,7 +52,7 @@ namespace Proyek_PCS_toko
             da = new OracleDataAdapter();
 
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT BARANG.ID ,BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT ORDER BY id ASC";
+            cmd.CommandText = "SELECT BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT ORDER BY BARANG.ID ASC";
 
             conn.Close();
             conn.Open();
@@ -148,7 +149,6 @@ namespace Proyek_PCS_toko
             gridhome.Visibility = Visibility.Hidden;
             gridsaldo.Visibility = Visibility.Visible;
             dg_shop.Visibility = Visibility.Hidden;
-            btnlihatkeranjang.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
         }
 
@@ -157,7 +157,6 @@ namespace Proyek_PCS_toko
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Visible;
             dg_shop.Visibility = Visibility.Hidden;
-            btnlihatkeranjang.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
             itemReset();
             int rand = rnd.Next(0, idBarang.Count());
@@ -173,10 +172,8 @@ namespace Proyek_PCS_toko
 
         private void shopButton_Click(object sender, RoutedEventArgs e)
         {
-            dg_shop.Visibility = Visibility.Visible;
             loadData();
-            btnlihatkeranjang.Visibility = Visibility.Visible;
-            btnmasukkeranjang.Visibility = Visibility.Visible;
+            gridshop.Visibility = Visibility.Visible;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -189,9 +186,10 @@ namespace Proyek_PCS_toko
 
         }
 
-        private void btnlihatkeranjang_Click(object sender, RoutedEventArgs e)
+        private void btnCart_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
     }
 }

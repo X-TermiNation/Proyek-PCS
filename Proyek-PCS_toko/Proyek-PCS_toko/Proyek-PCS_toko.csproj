@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Cart.cs" />
     <Compile Include="FormKatMerk.xaml.cs">
       <DependentUpon>FormKatMerk.xaml</DependentUpon>
     </Compile>
@@ -210,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="dummy-img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
