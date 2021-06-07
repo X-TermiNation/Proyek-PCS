@@ -25,12 +25,15 @@ namespace Proyek_PCS_toko
     {
         int userId;
         int idregsaldo;
+        int jumlah=1;
+        int idbarang;
         loggedUser user;
         OracleConnection conn;
         DataTable ds;
         OracleDataAdapter da;
         Random rnd = new Random();
         List<int> idBarang = new List<int>();
+        List<Cart> cart = new List<Cart>();
         public FormUser(int id)
         {
             conn = MainWindow.conn;
@@ -44,6 +47,7 @@ namespace Proyek_PCS_toko
             itemReset();
             int rand = rnd.Next(0, idBarang.Count());
             randomizeRec(rand);
+            tbjumlah.Text = jumlah.ToString();
         }
         private void loadData()
         {
@@ -149,6 +153,7 @@ namespace Proyek_PCS_toko
             gridhome.Visibility = Visibility.Hidden;
             gridsaldo.Visibility = Visibility.Visible;
             dg_shop.Visibility = Visibility.Hidden;
+            gridcart.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
         }
 
@@ -157,6 +162,7 @@ namespace Proyek_PCS_toko
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Visible;
             dg_shop.Visibility = Visibility.Hidden;
+            gridcart.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
             itemReset();
             int rand = rnd.Next(0, idBarang.Count());
@@ -173,7 +179,13 @@ namespace Proyek_PCS_toko
         private void shopButton_Click(object sender, RoutedEventArgs e)
         {
             loadData();
+            datashophide();
             gridshop.Visibility = Visibility.Visible;
+            dg_shop.Visibility = Visibility.Visible;
+            gridsaldo.Visibility = Visibility.Hidden;
+            gridhome.Visibility = Visibility.Hidden;
+            gridcart.Visibility = Visibility.Hidden;
+            btnmasukkeranjang.Visibility = Visibility.Visible;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -183,13 +195,142 @@ namespace Proyek_PCS_toko
 
         private void btnmasukkeranjang_Click(object sender, RoutedEventArgs e)
         {
-
+            getidbarang();
+            cart.Add(new Cart(idbarang, Convert.ToInt32(tbjumlah.Text)));
+            MessageBox.Show("Berhasil masuk ke cart");
+            datashophide();
         }
 
         private void btnCart_Click(object sender, RoutedEventArgs e)
         {
+            loadcart();
+            gridshop.Visibility = Visibility.Hidden;
+            dg_shop.Visibility = Visibility.Hidden;
+            gridsaldo.Visibility = Visibility.Hidden;
+            gridhome.Visibility = Visibility.Hidden;
+            gridcart.Visibility = Visibility.Visible;
+            btnmasukkeranjang.Visibility = Visibility.Hidden;
+        }
+
+        //shop
+        private void datashopshow()
+        {
+            lbharga.Visibility = Visibility.Visible;
+            lbnamabarang.Visibility = Visibility.Visible;
+            lbjml.Visibility = Visibility.Visible;
+            tbjumlah.Visibility = Visibility.Visible;
+            btnmin.Visibility = Visibility.Visible;
+            btnplus.Visibility = Visibility.Visible;
+            btnmasukkeranjang.Visibility = Visibility.Visible;
+        }
+
+        private void datashophide()
+        {
+            lbharga.Visibility = Visibility.Hidden;
+            lbnamabarang.Visibility = Visibility.Hidden;
+            lbjml.Visibility = Visibility.Hidden;
+            tbjumlah.Visibility = Visibility.Hidden;
+            btnmin.Visibility = Visibility.Hidden;
+            btnplus.Visibility = Visibility.Hidden;
+            btnmasukkeranjang.Visibility = Visibility.Hidden;
+        }
+
+        private void dg_shop_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dg_shop.SelectedIndex != -1)
+            {
+                jumlah = 1;
+                datashopshow();
+                lbnamabarang.Content = "Nama barang : " + ds.Rows[dg_shop.SelectedIndex][0].ToString();
+                lbharga.Content = "Harga perbarang:" + ds.Rows[dg_shop.SelectedIndex][4].ToString();
+                tbjumlah.Text = jumlah.ToString();
+            }
+            
+        }
+
+        private void btnplus_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_shop.SelectedIndex != -1)
+            {
+                if (jumlah < Convert.ToInt32(ds.Rows[dg_shop.SelectedIndex][3].ToString()))
+                {
+                    jumlah++;
+                    tbjumlah.Text = jumlah.ToString();
+
+                }
+            }
+        }
+
+        private void getidbarang()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            conn.Open();
+            cmd.CommandText = $"select ID from BARANG where NAMA_BARANG= '{ds.Rows[dg_shop.SelectedIndex][0]}'";
+            idbarang = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+        }
+
+        private void btnmin_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_shop.SelectedIndex != -1)
+            {
+                if (jumlah > 0)
+                {
+                    jumlah--;
+                    tbjumlah.Text = jumlah.ToString();
+                }
+            }
 
         }
 
+        //cart
+        private void loadcart()
+        {
+            lbdatacart.Visibility = Visibility.Hidden;
+            btnbeli.Visibility = Visibility.Hidden;
+            if(cart.Count > 0)
+            {
+                ds = new DataTable();
+                OracleCommand cmd = new OracleCommand();
+                da = new OracleDataAdapter();
+                for (int i = 0; i < cart.Count; i++)
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = $"SELECT NAMA_BARANG,HARGA,'{cart[i].JumlahBarang}' AS JUMLAH FROM BARANG WHERE ID = {cart[i].IdBarang}";
+
+                    conn.Close();
+                    conn.Open();
+                    cmd.ExecuteReader();
+                    da.SelectCommand = cmd;
+                    da.Fill(ds);
+                    dgkeranjang.ItemsSource = ds.DefaultView;
+                    conn.Close();
+                }
+            }
+            else
+            {
+                dgkeranjang.ItemsSource = null;
+            }
+        }
+
+        private void dgkeranjang_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            lbdatacart.Visibility = Visibility.Visible;
+            btnbeli.Visibility = Visibility.Visible;
+            int total;
+            total = Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][2].ToString()) * Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][1].ToString());
+            lbdatacart.Content = "Nama Barang : " + ds.Rows[dgkeranjang.SelectedIndex][0].ToString() + "\n" +
+                                "Harga Barang : " + ds.Rows[dgkeranjang.SelectedIndex][1].ToString() + "\n" +
+                                "Jumlah : " + ds.Rows[dgkeranjang.SelectedIndex][2].ToString() + "\n" +
+                                "total :" + total + "\n";
+        }
+
+        private void btnbeli_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(dgkeranjang.SelectedIndex.ToString());
+            cart.RemoveAt(dgkeranjang.SelectedIndex);
+            loadcart();
+        }
     }
 }

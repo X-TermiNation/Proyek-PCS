@@ -13,8 +13,11 @@ namespace Proyek_PCS_toko
 
         public Cart(int idBarang, int jumlahBarang)
         {
-            this.idBarang = idBarang;
-            this.jumlahBarang = jumlahBarang;
+            this.IdBarang = idBarang;
+            this.JumlahBarang = jumlahBarang;
         }
+
+        public int IdBarang { get => idBarang; set => idBarang = value; }
+        public int JumlahBarang { get => jumlahBarang; set => jumlahBarang = value; }
     }
 }
