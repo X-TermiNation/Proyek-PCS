@@ -37,5 +37,14 @@ namespace Proyek_PCS_toko
             }
             conn.Close();
         }
+        public void resetSaldo()
+        {
+            OracleCommand cmd = new OracleCommand("SELECT SALDO FROM CUSTOMER WHERE ID = :ID", conn);
+            cmd.Parameters.Add(":ID", userId);
+            conn.Close();
+            conn.Open();
+            this.saldo = Convert.ToInt32(cmd.ExecuteScalar());
+            conn.Close();
+        }
     }
 }

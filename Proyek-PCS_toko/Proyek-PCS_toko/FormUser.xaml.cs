@@ -34,6 +34,7 @@ namespace Proyek_PCS_toko
         Random rnd = new Random();
         List<int> idBarang = new List<int>();
         List<Cart> cart = new List<Cart>();
+        
         public FormUser(int id)
         {
             conn = MainWindow.conn;
@@ -84,7 +85,7 @@ namespace Proyek_PCS_toko
 
         private void itemReset()
         {
-            OracleCommand cmd = new OracleCommand("SELECT ID FROM BARANG", conn);
+            OracleCommand cmd = new OracleCommand("SELECT ID FROM BARANG WHERE STOK > 0", conn);
             conn.Close();
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
@@ -171,9 +172,24 @@ namespace Proyek_PCS_toko
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
         {
-            login lg = new login();
-            this.Close();
-            lg.ShowDialog();
+            if(cart.Count > 0)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Yakin ingin logout? Isi cart anda akan hilang jika anda logout!", "Logout Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    cart.Clear();
+                    login lg = new login();
+                    this.Close();
+                    lg.ShowDialog();
+                }
+            }
+            else
+            {
+                cart.Clear();
+                login lg = new login();
+                this.Close();
+                lg.ShowDialog();
+            }
         }
 
         private void shopButton_Click(object sender, RoutedEventArgs e)
@@ -195,10 +211,17 @@ namespace Proyek_PCS_toko
 
         private void btnmasukkeranjang_Click(object sender, RoutedEventArgs e)
         {
-            getidbarang();
-            cart.Add(new Cart(idbarang, Convert.ToInt32(tbjumlah.Text)));
-            MessageBox.Show("Berhasil masuk ke cart");
-            datashophide();
+            if (Convert.ToInt32(tbjumlah.Text) <= Convert.ToInt32(ds.Rows[dg_shop.SelectedIndex][3].ToString()))
+            {
+                getidbarang();
+                cart.Add(new Cart(idbarang, Convert.ToInt32(tbjumlah.Text)));
+                MessageBox.Show("Berhasil masuk ke cart");
+                datashophide();
+            }
+            else
+            {
+                MessageBox.Show("Stok yang anda inginkan melebihi stok yang anda!");
+            }
         }
 
         private void btnCart_Click(object sender, RoutedEventArgs e)
@@ -313,24 +336,51 @@ namespace Proyek_PCS_toko
                 dgkeranjang.ItemsSource = null;
             }
         }
-
+        int total;
         private void dgkeranjang_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            lbdatacart.Visibility = Visibility.Visible;
-            btnbeli.Visibility = Visibility.Visible;
-            int total;
-            total = Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][2].ToString()) * Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][1].ToString());
-            lbdatacart.Content = "Nama Barang : " + ds.Rows[dgkeranjang.SelectedIndex][0].ToString() + "\n" +
-                                "Harga Barang : " + ds.Rows[dgkeranjang.SelectedIndex][1].ToString() + "\n" +
-                                "Jumlah : " + ds.Rows[dgkeranjang.SelectedIndex][2].ToString() + "\n" +
-                                "total :" + total + "\n";
+            if (dgkeranjang.SelectedIndex != -1)
+            {
+                lbdatacart.Visibility = Visibility.Visible;
+                btnbeli.Visibility = Visibility.Visible;
+                
+                total = Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][2].ToString()) * Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][1].ToString());
+                lbdatacart.Content = "Nama Barang : " + ds.Rows[dgkeranjang.SelectedIndex][0].ToString() + "\n" +
+                                    "Harga Barang : " + ds.Rows[dgkeranjang.SelectedIndex][1].ToString() + "\n" +
+                                    "Jumlah : " + ds.Rows[dgkeranjang.SelectedIndex][2].ToString() + "\n" +
+                                    "total :" + total + "\n";
+            }
         }
 
         private void btnbeli_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(dgkeranjang.SelectedIndex.ToString());
-            cart.RemoveAt(dgkeranjang.SelectedIndex);
-            loadcart();
+            if (user.saldo >= total)
+            {
+                MessageBox.Show(dgkeranjang.SelectedIndex.ToString());
+                OracleCommand cmd = new OracleCommand("INSERT INTO H_BELI VALUES(-1, :IDCUST, :TOTAL, TO_DATE(SYSDATE, 'DD-MON-YY'))", conn);
+                cmd.Parameters.Add(":IDCUST", userId);
+                cmd.Parameters.Add(":TOTAL", total);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                cmd = new OracleCommand("INSERT INTO D_BELI VALUES(-1, :IDBARANG, :JUMLAH, :SUBTOTAL)", conn);
+                cmd.Parameters.Add(":IDBARANG", cart[dgkeranjang.SelectedIndex].IdBarang);
+                cmd.Parameters.Add(":JUMLAH", cart[dgkeranjang.SelectedIndex].JumlahBarang);
+                cmd.Parameters.Add(":SUBTOTAL", total);
+                conn.Close();
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                cart.RemoveAt(dgkeranjang.SelectedIndex);
+                loadcart();
+                user.resetSaldo();
+                saldoLabel.Content = $"Saldo : {user.saldo}";
+            }
+            else
+            {
+                MessageBox.Show("Saldo tidak cukup! Silahkan Top-up terlebih dahulu");
+            }
         }
     }
 }
