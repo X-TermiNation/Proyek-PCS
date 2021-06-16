@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Proyek_PCS_toko"
         mc:Ignorable="d"
         Title="FormUser" Height="626" WindowState="Maximized" WindowStartupLocation="CenterScreen" Width="1217" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="AnyConv.com__users.jpg"/>
+    </Window.Background>
     <Grid>
         <DockPanel Height="55" LastChildFill="False" VerticalAlignment="Top" Background="#FF1CD3A9">
             <Label Content="ALTERNATECH" Height="55" VerticalAlignment="Top" Width="155" FontFamily="Stencil" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20"/>
@@ -27,6 +30,9 @@
             <Label Content="Jumlah Saldo:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,1.538"/>
         </Grid>
         <Grid x:Name="gridhome" HorizontalAlignment="Left" Height="527" Margin="10,60,0,0" VerticalAlignment="Top" Width="1191" Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
             <Image HorizontalAlignment="Left" Height="107" Margin="10,50,0,0" VerticalAlignment="Top" Width="117" Source="dummy-img.png" Stretch="Fill"/>
             <Label Content="RECOMMENDED!!!" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Perpetua Titling MT" FontWeight="Bold"/>
             <Label x:Name="namaproduk" Content="Label" HorizontalAlignment="Left" Margin="132,50,0,0" VerticalAlignment="Top" FontSize="20"/>

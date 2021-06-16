@@ -48,7 +48,6 @@ namespace Proyek_PCS_toko
         {
             if (tbusername.Text.ToUpper() == "ADMIN" && tbpassword.Password.ToUpper() == "ADMIN")
             {
-                MessageBox.Show("Berhasil login admin");
                 menu m = new menu();
                 this.Close();
                 m.Show();
@@ -75,7 +74,6 @@ namespace Proyek_PCS_toko
 
                 if (log)
                 {
-                    MessageBox.Show("Berhasil login customer");
                     FormUser fu = new FormUser(id);
                     this.Close();
                     fu.ShowDialog();

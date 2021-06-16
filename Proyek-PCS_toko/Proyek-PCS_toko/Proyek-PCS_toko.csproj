@@ -215,5 +215,8 @@
   <ItemGroup>
     <Resource Include="cart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AnyConv.com__users.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
