@@ -120,6 +120,12 @@ namespace Proyek_PCS_toko
 
         }
 
+        private void keluarBTN_Click(object sender, RoutedEventArgs e)
+        {
+            menu m = new menu();
+            m.Show();
+            this.Close();
+        }
 
         private void submitBTN_Click(object sender, RoutedEventArgs e)
         {

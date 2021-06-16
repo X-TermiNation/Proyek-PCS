@@ -24,6 +24,7 @@
         <RadioButton x:Name="hargaReportRB" Content="Lihat Harga" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Checked="hargaReportRB_Checked"/>
         <RadioButton x:Name="stockReportRB" Content="Lihat Stock" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Checked="stockReportRB_Checked"/>
         <RadioButton x:Name="pemasukanReportRB" Content="Lihat Pemasukan" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Checked="pemasukanReportRB_Checked"/>
+        <Button x:Name="keluarBTN" Content="KELUAR" HorizontalAlignment="Left" Margin="709,17,0,0" VerticalAlignment="Top" Width="75" Click="keluarBTN_Click"/>
 
     </Grid>
 </Window>
