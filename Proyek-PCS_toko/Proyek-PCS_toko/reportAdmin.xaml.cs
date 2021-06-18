@@ -130,7 +130,6 @@ namespace Proyek_PCS_toko
         private void submitBTN_Click(object sender, RoutedEventArgs e)
         {
             getcurrentkode();
-            MessageBox.Show(kodekat, kodemerk);
             if (hargaReportRB.IsChecked == true)
             {
                 ReportHarga rpt = new ReportHarga();
