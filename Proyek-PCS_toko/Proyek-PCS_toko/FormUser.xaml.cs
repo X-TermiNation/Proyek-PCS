@@ -25,7 +25,7 @@ namespace Proyek_PCS_toko
     {
         int userId;
         int idregsaldo;
-        int jumlah=1;
+        int jumlah = 1;
         int idbarang;
         loggedUser user;
         OracleConnection conn;
@@ -34,7 +34,7 @@ namespace Proyek_PCS_toko
         Random rnd = new Random();
         List<int> idBarang = new List<int>();
         List<Cart> cart = new List<Cart>();
-        
+
         public FormUser(int id)
         {
             conn = MainWindow.conn;
@@ -46,8 +46,14 @@ namespace Proyek_PCS_toko
             userId = id;
             saldo();
             itemReset();
-            int rand = rnd.Next(0, idBarang.Count());
-            randomizeRec(rand);
+            int[] arr = new int[3];
+            
+
+            arr[0] = rnd.Next(0, idBarang.Count());
+            arr[1] = rnd.Next(0, idBarang.Count());
+            arr[2] = rnd.Next(0, idBarang.Count());
+
+            randomizeRec(arr[0], arr[1], arr[2]);
             tbjumlah.Text = jumlah.ToString();
         }
         private void loadData()
@@ -58,7 +64,6 @@ namespace Proyek_PCS_toko
 
             cmd.Connection = conn;
             cmd.CommandText = "SELECT BARANG.NAMA_BARANG AS \"NAMA BARANG\",MERK.NAMA_MERK ,KATEGORI.NAMA_KAT,STOK,HARGA FROM BARANG,MERK,KATEGORI WHERE BARANG.MERK = MERK.KODE_MERK AND BARANG.KATEGORI = KATEGORI.KODE_KAT ORDER BY BARANG.ID ASC";
-
             conn.Close();
             conn.Open();
             cmd.ExecuteReader();
@@ -68,17 +73,32 @@ namespace Proyek_PCS_toko
             conn.Close();
         }
 
-        private void randomizeRec(int idBarang)
+        private void randomizeRec(int idBarang1, int idBarang2, int idBarang3)
         {
-            OracleCommand cmd = new OracleCommand("SELECT NAMA_BARANG, HARGA FROM BARANG WHERE ID = :ID", conn);
-            cmd.Parameters.Add(":ID", idBarang);
+            List<Label> namaProduk = new List<Label>();
+            List<Label> hrgProduk = new List<Label>();
+            namaProduk.Add(namaproduk);
+            namaProduk.Add(namaproduk2);
+            namaProduk.Add(namaproduk3);
+
+            hrgProduk.Add(hargalabel);
+            hrgProduk.Add(hargalabel2);
+            hrgProduk.Add(hargalabel3);
+
+
+            OracleCommand cmd = new OracleCommand("SELECT NAMA_BARANG, HARGA FROM BARANG WHERE ID = :ID OR ID = :ID2 OR ID = :ID3", conn);
+            cmd.Parameters.Add(":ID", idBarang1);
+            cmd.Parameters.Add(":ID2", idBarang2);
+            cmd.Parameters.Add(":ID3", idBarang3);
             conn.Close();
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
-            while(reader.Read())
+            int x = 0;
+            while (reader.Read())
             {
-                namaproduk.Content = reader[0].ToString();
-                hargalabel.Content = $"Harga: {reader[1].ToString()}";
+                namaProduk[x].Content = reader[0].ToString();
+                hrgProduk[x].Content = $"Harga: {reader[1].ToString()}";
+                x++;
             }
             conn.Close();
         }
@@ -89,7 +109,7 @@ namespace Proyek_PCS_toko
             conn.Close();
             conn.Open();
             OracleDataReader reader = cmd.ExecuteReader();
-            while(reader.Read())
+            while (reader.Read())
             {
                 idBarang.Add(Convert.ToInt32(reader[0]));
             }
@@ -123,7 +143,7 @@ namespace Proyek_PCS_toko
 
         private void btnisisaldo_Click(object sender, RoutedEventArgs e)
         {
-            if(tbsaldo.Text.Length !=0)
+            if (tbsaldo.Text.Length != 0)
             {
                 getidreqsaldo();
                 conn.Open();
@@ -166,13 +186,20 @@ namespace Proyek_PCS_toko
             gridcart.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
             itemReset();
-            int rand = rnd.Next(0, idBarang.Count());
-            randomizeRec(rand);
+            int[] arr = new int[3];
+            arr[0] = rnd.Next(0, idBarang.Count());
+            arr[1] = rnd.Next(0, idBarang.Count());
+            arr[2] = rnd.Next(0, idBarang.Count());
+
+            randomizeRec(arr[0], arr[1], arr[2]);
+
+
+
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(cart.Count > 0)
+            if (cart.Count > 0)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Yakin ingin logout? Isi cart anda akan hilang jika anda logout!", "Logout Confirmation", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
@@ -268,7 +295,7 @@ namespace Proyek_PCS_toko
                 lbharga.Content = "Harga perbarang:" + ds.Rows[dg_shop.SelectedIndex][4].ToString();
                 tbjumlah.Text = jumlah.ToString();
             }
-            
+
         }
 
         private void btnplus_Click(object sender, RoutedEventArgs e)
@@ -312,7 +339,7 @@ namespace Proyek_PCS_toko
         {
             lbdatacart.Visibility = Visibility.Hidden;
             btnbeli.Visibility = Visibility.Hidden;
-            if(cart.Count > 0)
+            if (cart.Count > 0)
             {
                 ds = new DataTable();
                 OracleCommand cmd = new OracleCommand();
@@ -343,7 +370,7 @@ namespace Proyek_PCS_toko
             {
                 lbdatacart.Visibility = Visibility.Visible;
                 btnbeli.Visibility = Visibility.Visible;
-                
+
                 total = Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][2].ToString()) * Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][1].ToString());
                 lbdatacart.Content = "Nama Barang : " + ds.Rows[dgkeranjang.SelectedIndex][0].ToString() + "\n" +
                                     "Harga Barang : " + ds.Rows[dgkeranjang.SelectedIndex][1].ToString() + "\n" +
