@@ -90,9 +90,17 @@ namespace Proyek_PCS_toko {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Kuetansirpt_paramNota {
+        public CrystalDecisions.Shared.IParameterField Parameter_paramNota {
             get {
                 return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Kuetansirpt_paramNota {
+            get {
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }

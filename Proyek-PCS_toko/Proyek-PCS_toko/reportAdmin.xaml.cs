@@ -185,7 +185,7 @@ namespace Proyek_PCS_toko
             {
                 getcurrentkode();
                 ReportStock rpt = new ReportStock();
-                if (notaCB.Text.ToString() != "")
+                if (notaCB.Text.ToString() != "" && notaCB.Text.ToString() != "All")
                 {
                     rpt.SetParameterValue("paramNota", kodeNota);
                 }
