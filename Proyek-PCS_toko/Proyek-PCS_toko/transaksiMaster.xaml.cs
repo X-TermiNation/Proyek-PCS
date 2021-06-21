@@ -57,7 +57,7 @@ namespace Proyek_PCS_toko
             OracleCommand cmd = new OracleCommand();
             da = new OracleDataAdapter();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT HB.NOMOR_NOTA AS \"Nomor Nota\",C.NAMA_CUST AS \"Nama Customer\",HB.TOTAL_PEMBELIAN AS \"Total Pembelian\" FROM H_BELI HB,CUSTOMER C WHERE C.ID = HB.ID_CUSTOMER GROUP BY C.NAMA_CUST,HB.NOMOR_NOTA,HB.TOTAL_PEMBELIAN ORDER BY C.NAMA_CUST ASC";
+            cmd.CommandText = "SELECT HB.NOMOR_NOTA AS \"Nomor Nota\",C.NAMA_CUST AS \"Nama Customer\",HB.TOTAL_PEMBELIAN AS \"Total Pembelian\" FROM H_BELI HB,CUSTOMER C WHERE C.ID = HB.ID_CUSTOMER GROUP BY C.NAMA_CUST,HB.NOMOR_NOTA,HB.TOTAL_PEMBELIAN ORDER BY HB.NOMOR_NOTA DESC";
             conn.Open();
             cmd.ExecuteReader();
             da.SelectCommand = cmd;

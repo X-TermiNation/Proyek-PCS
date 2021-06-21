@@ -144,7 +144,7 @@ namespace Proyek_PCS_toko
                 cmd.Connection = conn;
                 conn.Open();
                 cmd.CommandText = $"select NOMOR_NOTA from D_BELI where NOMOR_NOTA = '{notaCB.Text}'";
-                kodeNota = cmd.ExecuteScalar().ToString();
+                kodeNota = (string)cmd.ExecuteScalar();
                 conn.Close();
             }
         }
@@ -198,6 +198,7 @@ namespace Proyek_PCS_toko
             }
             else if (pemasukanReportRB.IsChecked == true)
             {
+                getcurrentkode();
                 pemasukanReport rpt = new pemasukanReport();
                 if (pertamaDATE.DisplayDate == null || duaDATE.DisplayDate == null || katCB.Text.ToString() == "" || merkCB.Text.ToString() == "")
                 {

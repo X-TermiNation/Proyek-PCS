@@ -29,7 +29,7 @@
             <ComboBox x:Name="cblistpembayaran" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="479" SelectedIndex="0"/>
             <Label Content="Jumlah Saldo:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,1.538"/>
         </Grid>
-        <Grid x:Name="gridhome" HorizontalAlignment="Left" Height="527" Margin="10,60,0,0" VerticalAlignment="Top" Width="1191" Visibility="Hidden">
+        <Grid x:Name="gridhome" HorizontalAlignment="Left" Height="527" Margin="10,60,0,0" VerticalAlignment="Top" Width="1191" Visibility="Visible">
             <Grid.Background>
                 <ImageBrush/>
             </Grid.Background>
@@ -48,7 +48,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dg_shop" Height="285" Margin="16,21,10,0" VerticalAlignment="Top" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" ColumnWidth="Auto" MouseDoubleClick="dg_shop_MouseDoubleClick"/>
             <Button x:Name="btnmasukkeranjang" Content="Masukkan Keranjang" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="165" Click="btnmasukkeranjang_Click" Height="39"/>
             <Label x:Name="lbnamabarang" Content="barang" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Height="30" Width="352"/>
             <TextBox x:Name="tbjumlah" HorizontalAlignment="Left" Height="22" Margin="108,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
@@ -65,13 +64,14 @@
             <Button x:Name="btnmin" Content="-" HorizontalAlignment="Left" Margin="74,361,0,0" VerticalAlignment="Top" Width="23" Click="btnmin_Click"/>
             <Label x:Name="lbharga" Content="harga barang" HorizontalAlignment="Left" Margin="10,396,0,0" VerticalAlignment="Top" Width="352"/>
             <Label x:Name="lbjml" Content="Jumlah :" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top"/>
+            <DataGrid x:Name="dg_shop" Margin="10,15,10,0" Height="313" VerticalAlignment="Top" MouseDoubleClick="dg_shop_MouseDoubleClick" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" IsReadOnly="True"/>
         </Grid>
         <Button x:Name="logoutBtn" Content="Log out" HorizontalAlignment="Right" Margin="0,19,10,0" VerticalAlignment="Top" Width="75" Background="#FFFF6969" Click="logoutBtn_Click"/>
-        <Grid x:Name="gridcart" HorizontalAlignment="Left" Height="514" Margin="10,73,0,0" VerticalAlignment="Top" Width="1191" Visibility="Visible">
+        <Grid x:Name="gridcart" HorizontalAlignment="Left" Height="514" Margin="10,73,0,0" VerticalAlignment="Top" Width="1191" Visibility="Hidden">
             <DataGrid x:Name="dgkeranjang" HorizontalAlignment="Left" Height="318" Margin="10,64,0,0" VerticalAlignment="Top" Width="604" MouseDoubleClick="dgkeranjang_MouseDoubleClick" IsReadOnly="True"/>
             <Label Content="Keranjang " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="49" Width="369" FontSize="25" FontWeight="Bold"/>
             <Label x:Name="lbdatacart" Content="Label" HorizontalAlignment="Left" Margin="650,64,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <Button x:Name="btnbeli" Content="Beli barang" HorizontalAlignment="Left" Margin="1080,469,0,0" VerticalAlignment="Top" Width="101" Height="35" Click="btnbeli_Click"/>
+            <Button x:Name="btnbeli" Content="Beli barang" HorizontalAlignment="Left" Margin="619,245,0,0" VerticalAlignment="Top" Width="101" Height="35" Click="btnbeli_Click"/>
             <Label Content="Subtotal:" HorizontalAlignment="Left" Margin="359,414,0,0" VerticalAlignment="Top"/>
             <Label x:Name="labeltotalharga" Content="-" HorizontalAlignment="Left" Margin="422,414,0,0" VerticalAlignment="Top"/>
         </Grid>

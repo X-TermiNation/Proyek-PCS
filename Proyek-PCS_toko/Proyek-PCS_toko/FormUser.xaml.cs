@@ -174,8 +174,8 @@ namespace Proyek_PCS_toko
         {
             gridhome.Visibility = Visibility.Hidden;
             gridsaldo.Visibility = Visibility.Visible;
-            dg_shop.Visibility = Visibility.Hidden;
             gridcart.Visibility = Visibility.Hidden;
+            gridshop.Visibility = Visibility.Hidden;
             btnmasukkeranjang.Visibility = Visibility.Hidden;
         }
 
@@ -183,9 +183,9 @@ namespace Proyek_PCS_toko
         {
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Visible;
-            dg_shop.Visibility = Visibility.Hidden;
             gridcart.Visibility = Visibility.Hidden;
-            btnmasukkeranjang.Visibility = Visibility.Hidden;
+            gridshop.Visibility = Visibility.Hidden;
+
             itemReset();
             int[] arr = new int[3];
             arr[0] = rnd.Next(0, idBarang.Count());
@@ -225,11 +225,9 @@ namespace Proyek_PCS_toko
             loadData();
             datashophide();
             gridshop.Visibility = Visibility.Visible;
-            dg_shop.Visibility = Visibility.Visible;
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Hidden;
             gridcart.Visibility = Visibility.Hidden;
-            btnmasukkeranjang.Visibility = Visibility.Visible;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -256,11 +254,9 @@ namespace Proyek_PCS_toko
         {
             loadcart();
             gridshop.Visibility = Visibility.Hidden;
-            dg_shop.Visibility = Visibility.Hidden;
             gridsaldo.Visibility = Visibility.Hidden;
             gridhome.Visibility = Visibility.Hidden;
             gridcart.Visibility = Visibility.Visible;
-            btnmasukkeranjang.Visibility = Visibility.Hidden;
         }
 
         //shop
@@ -339,7 +335,6 @@ namespace Proyek_PCS_toko
         private void loadcart()
         {
             lbdatacart.Visibility = Visibility.Hidden;
-            btnbeli.Visibility = Visibility.Hidden;
             if (cart.Count > 0)
             {
                 ds = new DataTable();
@@ -369,6 +364,7 @@ namespace Proyek_PCS_toko
                 total += Convert.ToInt32(ds.Rows[i][2].ToString()) * Convert.ToInt32(ds.Rows[i][1].ToString());
             }
             labeltotalharga.Content = total.ToString();
+            
         }
       
         private void dgkeranjang_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -397,13 +393,12 @@ namespace Proyek_PCS_toko
                     cmd = new OracleCommand("INSERT INTO D_BELI VALUES(-1, :IDBARANG, :JUMLAH, :SUBTOTAL)", conn);
                     cmd.Parameters.Add(":IDBARANG", cart[i].IdBarang);
                     cmd.Parameters.Add(":JUMLAH", cart[i].JumlahBarang);
-
+                    cmd.Parameters.Add(":SUBTOTAL", Convert.ToInt32(ds.Rows[i][1].ToString()) * Convert.ToInt32(cart[i].JumlahBarang));
+                    conn.Close();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
-                cmd.Parameters.Add(":SUBTOTAL", total);
-                conn.Close();
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
                 cart.Clear();
                 loadcart();
                 user.resetSaldo();
@@ -414,5 +409,7 @@ namespace Proyek_PCS_toko
                 MessageBox.Show("Saldo tidak cukup! Silahkan Top-up terlebih dahulu");
             }
         }
+
+       
     }
 }
