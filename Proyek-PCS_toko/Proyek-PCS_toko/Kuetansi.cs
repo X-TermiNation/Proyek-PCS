@@ -16,14 +16,14 @@ namespace Proyek_PCS_toko {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReportStock : ReportClass {
+    public class Kuetansi : ReportClass {
         
-        public ReportStock() {
+        public Kuetansi() {
         }
         
         public override string ResourceName {
             get {
-                return "ReportStock.rpt";
+                return "Kuetansi.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Proyek_PCS_toko {
         
         public override string FullResourceName {
             get {
-                return "Proyek_PCS_toko.ReportStock.rpt";
+                return "Proyek_PCS_toko.Kuetansi.rpt";
             }
             set {
                 // Do nothing
@@ -87,20 +87,12 @@ namespace Proyek_PCS_toko {
                 return this.ReportDefinition.Sections[4];
             }
         }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Kuetansirpt_paramNota {
-            get {
-                return this.DataDefinition.ParameterFields[0];
-            }
-        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReportStock : Component, ICachedReport {
+    public class CachedKuetansi : Component, ICachedReport {
         
-        public CachedReportStock() {
+        public CachedKuetansi() {
         }
         
         [Browsable(false)]
@@ -137,7 +129,7 @@ namespace Proyek_PCS_toko {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReportStock rpt = new ReportStock();
+            Kuetansi rpt = new Kuetansi();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -27,11 +27,13 @@ namespace Proyek_PCS_toko
         OracleDataAdapter da;
         string kodemerk;
         string kodekat;
+        string kodeNota;
         public reportAdmin()
         {
             InitializeComponent();
             getKat();
             getMerk();
+            getNota();
         }
         void getMerk()
         {
@@ -46,6 +48,22 @@ namespace Proyek_PCS_toko
             while (reader.Read())
             {
                 merkCB.Items.Add(reader.GetString(0));
+            }
+            conn.Close();
+        }
+
+        void getNota()
+        {
+            notaCB.Items.Add("All");
+            conn = MainWindow.conn;
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = $"SELECT NOMOR_NOTA from D_BELI ORDER BY NOMOR_NOTA ASC";
+            conn.Open();
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                notaCB.Items.Add(reader.GetString(0));
             }
             conn.Close();
         }
@@ -75,6 +93,7 @@ namespace Proyek_PCS_toko
             duaDATE.IsEnabled = false;
             katCB.IsEnabled = true;
             merkCB.IsEnabled = true;
+            notaCB.IsEnabled = false;
             submitBTN.IsEnabled = true;
         }
 
@@ -82,8 +101,9 @@ namespace Proyek_PCS_toko
         {
             pertamaDATE.IsEnabled = false;
             duaDATE.IsEnabled = false;
-            katCB.IsEnabled = true;
-            merkCB.IsEnabled = true;
+            katCB.IsEnabled = false;
+            merkCB.IsEnabled = false;
+            notaCB.IsEnabled = true;
             submitBTN.IsEnabled = true;
         }
 
@@ -94,6 +114,7 @@ namespace Proyek_PCS_toko
             katCB.IsEnabled = true;
             merkCB.IsEnabled = true;
             submitBTN.IsEnabled = true;
+            notaCB.IsEnabled = false;
         }
 
         private void getcurrentkode()
@@ -104,7 +125,7 @@ namespace Proyek_PCS_toko
                 cmd.Connection = conn;
                 conn.Open();
                 cmd.CommandText = $"select KODE_KAT from KATEGORI where NAMA_KAT = '{katCB.Text}'";
-                kodekat = cmd.ExecuteScalar().ToString();
+                kodekat = (String)cmd.ExecuteScalar();
                 conn.Close();
             }
             
@@ -114,10 +135,18 @@ namespace Proyek_PCS_toko
                 cmd.Connection = conn;
                 conn.Open();
                 cmd.CommandText = $"select KODE_MERK from MERK where NAMA_MERK = '{merkCB.Text}'";
-                kodemerk = cmd.ExecuteScalar().ToString();
+                kodemerk = (String)cmd.ExecuteScalar();
                 conn.Close();
             }
-
+            if(notaCB.Text != "All")
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.CommandText = $"select NOMOR_NOTA from D_BELI where NOMOR_NOTA = '{notaCB.Text}'";
+                kodeNota = cmd.ExecuteScalar().ToString();
+                conn.Close();
+            }
         }
 
         private void keluarBTN_Click(object sender, RoutedEventArgs e)
@@ -154,22 +183,15 @@ namespace Proyek_PCS_toko
             }
             else if (stockReportRB.IsChecked == true)
             {
+                getcurrentkode();
                 ReportStock rpt = new ReportStock();
-                if (katCB.Text.ToString() != "" && katCB.Text.ToString() != "All")
+                if (notaCB.Text.ToString() != "")
                 {
-                    rpt.SetParameterValue("katParam", kodekat);
+                    rpt.SetParameterValue("paramNota", kodeNota);
                 }
                 else
                 {
-                    rpt.SetParameterValue("katParam", "1");
-                }
-                if (merkCB.Text.ToString() != "" && merkCB.Text.ToString() != "All")
-                {
-                    rpt.SetParameterValue("merkParam", kodemerk);
-                }
-                else
-                {
-                    rpt.SetParameterValue("merkParam", "1");
+                    rpt.SetParameterValue("paramNota", "1");
                 }
                 rpt.SetDatabaseLogon(MainWindow.userId, MainWindow.pass, MainWindow.source, "");
                 reportCRV.ViewerCore.ReportSource = rpt;

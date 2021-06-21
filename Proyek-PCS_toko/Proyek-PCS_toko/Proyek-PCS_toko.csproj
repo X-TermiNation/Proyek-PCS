@@ -76,6 +76,12 @@
     <Compile Include="FormUser.xaml.cs">
       <DependentUpon>FormUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kuetansi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kuetansi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="loggedUser.cs" />
     <Compile Include="masterbarang.xaml.cs">
       <DependentUpon>masterbarang.xaml</DependentUpon>
@@ -173,6 +179,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Kuetansi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Kuetansi.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="pemasukanReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>pemasukanReport.cs</LastGenOutput>
