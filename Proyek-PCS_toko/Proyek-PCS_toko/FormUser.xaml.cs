@@ -27,6 +27,7 @@ namespace Proyek_PCS_toko
         int idregsaldo;
         int jumlah = 1;
         int idbarang;
+        int total;
         loggedUser user;
         OracleConnection conn;
         DataTable ds;
@@ -362,20 +363,21 @@ namespace Proyek_PCS_toko
             {
                 dgkeranjang.ItemsSource = null;
             }
+            total = 0;
+            for (int i = 0; i < dgkeranjang.Items.Count; i++)
+            {
+                total += Convert.ToInt32(ds.Rows[i][2].ToString()) * Convert.ToInt32(ds.Rows[i][1].ToString());
+            }
+            labeltotalharga.Content = total.ToString();
         }
-        int total;
+      
         private void dgkeranjang_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dgkeranjang.SelectedIndex != -1)
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Yakin ingin menghapus", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
             {
-                lbdatacart.Visibility = Visibility.Visible;
-                btnbeli.Visibility = Visibility.Visible;
-
-                total = Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][2].ToString()) * Convert.ToInt32(ds.Rows[dgkeranjang.SelectedIndex][1].ToString());
-                lbdatacart.Content = "Nama Barang : " + ds.Rows[dgkeranjang.SelectedIndex][0].ToString() + "\n" +
-                                    "Harga Barang : " + ds.Rows[dgkeranjang.SelectedIndex][1].ToString() + "\n" +
-                                    "Jumlah : " + ds.Rows[dgkeranjang.SelectedIndex][2].ToString() + "\n" +
-                                    "total :" + total + "\n";
+                cart.RemoveAt(dgkeranjang.SelectedIndex);
+                loadcart();
             }
         }
 
@@ -383,7 +385,6 @@ namespace Proyek_PCS_toko
         {
             if (user.saldo >= total)
             {
-                MessageBox.Show(dgkeranjang.SelectedIndex.ToString());
                 OracleCommand cmd = new OracleCommand("INSERT INTO H_BELI VALUES(-1, :IDCUST, :TOTAL, TO_DATE(SYSDATE, 'DD-MON-YY'))", conn);
                 cmd.Parameters.Add(":IDCUST", userId);
                 cmd.Parameters.Add(":TOTAL", total);
@@ -391,15 +392,19 @@ namespace Proyek_PCS_toko
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                cmd = new OracleCommand("INSERT INTO D_BELI VALUES(-1, :IDBARANG, :JUMLAH, :SUBTOTAL)", conn);
-                cmd.Parameters.Add(":IDBARANG", cart[dgkeranjang.SelectedIndex].IdBarang);
-                cmd.Parameters.Add(":JUMLAH", cart[dgkeranjang.SelectedIndex].JumlahBarang);
+                for (int i = 0; i < dgkeranjang.Items.Count; i++)
+                {
+                    cmd = new OracleCommand("INSERT INTO D_BELI VALUES(-1, :IDBARANG, :JUMLAH, :SUBTOTAL)", conn);
+                    cmd.Parameters.Add(":IDBARANG", cart[i].IdBarang);
+                    cmd.Parameters.Add(":JUMLAH", cart[i].JumlahBarang);
+
+                }
                 cmd.Parameters.Add(":SUBTOTAL", total);
                 conn.Close();
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                cart.RemoveAt(dgkeranjang.SelectedIndex);
+                cart.Clear();
                 loadcart();
                 user.resetSaldo();
                 saldoLabel.Content = $"Saldo : {user.saldo}";
