@@ -54,7 +54,6 @@ namespace Proyek_PCS_toko
 
         void getNota()
         {
-            notaCB.Items.Add("All");
             conn = MainWindow.conn;
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;

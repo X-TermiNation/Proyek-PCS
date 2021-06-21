@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Debug\
+E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\obj\Release\
 Proyek_PCS_toko
 none
 false
-DEBUG;TRACE
+TRACE
 E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\App.xaml
 9-20533607
 
@@ -16,5 +16,5 @@ E:\Github data\Proyek-PCS\Proyek-PCS_toko\Proyek-PCS_toko\App.xaml
 24387491810
 FormKatMerk.xaml;FormUser.xaml;login.xaml;MainWindow.xaml;masterbarang.xaml;menu.xaml;register.xaml;reportAdmin.xaml;transaksiMaster.xaml;
 
-False
+True
 
